@@ -1,0 +1,75 @@
+body{
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    background: #181818;
+    color: #fff;
+}
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+}
+.container-fluid{
+    width: 90%;
+}
+a{
+   color: #fff;
+   text-decoration: none;
+}
+a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+button, button:active, button:focus {
+    outline: none;
+    border: none;
+}
+
+
+/*  Header  */
+.header{
+    margin-top: 20px;
+}
+.header .row{
+    justify-content: space-between;
+    align-items: center;
+}
+.header .header__logo{
+    display: flex;
+    align-items: center;
+}
+.header .header__logo .img{
+    width: 75px;
+    height: auto;
+    margin-right: 20px;
+}
+.header .header__logo .name{
+    display: inline;
+}
+.header .header__nav .navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .header__nav .navigation .item{
+    font-size: 20px;
+    transition: .3s ease;
+}
+.header .header__nav .navigation .item:hover{
+    color: #2ecc71;
+    transform: scale(1.1);
+}
+
+
+@media (max-width: 770px){
+    .header .header__logo{
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .header .header__logo .img{
+        
+        margin-right: 10px;
+    }
+    .header .header__nav .navigation .item{
+        font-size: 17px;
+    }
+}
