@@ -1,0 +1,15 @@
+.error__wrapper{
+    display: flex;
+    height: 85%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error__wrapper .error_text{
+    font-size: 15rem;
+}
+
+.error__wrapper p{
+    font-size: 2rem;
+}

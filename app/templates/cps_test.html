@@ -9,43 +9,41 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-
-    <div class="main__test block col-xl-9 col-md-12">
-        <h2 class="title">{{ test_time }} seconds test</h2>
-        <div class="info">
-            <div class="item item1">
-                <p id="timer" class="value">{{ test_time }}.00</p>
-                <p>Timer</p>
+        <div class="main__test block col-xl-8 col-md-12">
+            <h2 class="title">{{ test_time }} seconds test</h2>
+            <div class="info">
+                <div class="item item1">
+                    <p id="timer" class="value">{{ test_time }}.00</p>
+                    <p>Timer</p>
+                </div>
+                <div class="item item2">
+                    <p id="cps" class="value">0.00</p>
+                    <p>Click/s</p>
+                </div>
+                <div class="item item3">
+                    <p id="counter" class="value">0</p>
+                    <p>Score</p>
+                </div>
             </div>
-            <div class="item item2">
-                <p id="cps" class="value">0.00</p>
-                <p>Click/s</p>
-            </div>
-            <div class="item item3">
-                <p id="counter" class="value">0</p>
-                <p>Score</p>
+            <div class="click-area ripple" onclick="trigger()">
+                <button id="start-btn" onclick="trigger() ">Click here to start playing</button>
             </div>
         </div>
-        <div class="click-area ripple" onclick="trigger()">
-            <button id="start-btn" onclick="trigger() ">Click here to start playing</button>
-        </div>
-    </div>
-    <div class="main__links block col-xl-2 col-md-12">
-        <h2 class="title">CPS TESTS</h2>
-        <div class="links">
-            <a class="link" href="{{ url_for('main_page', test_time = 1) }}">1 SECONDS TEST</a>
-            <a class="link" href="{{ url_for('main_page', test_time = 2) }}">2 SECONDS TEST</a>
-            <a class="link" href="{{ url_for('main_page', test_time = 5) }}">5 SECONDS TEST</a>
-            <a class="link" href="{{ url_for('main_page', test_time = 10) }}">10 SECONDS TEST</a>
-            <a class="link" href="{{ url_for('main_page', test_time = 15) }}">15 SECONDS TEST</a>
-            <a class="link" href="{{ url_for('main_page', test_time = 30) }}">30 SECONDS TEST</a>
-            <a class="link" href="{{ url_for('main_page', test_time = 60) }}">60 SECONDS TEST</a>
-            <a class="link" href="{{ url_for('main_page', test_time = 100) }}">100 SECONDS TEST</a>
+        <div class="main__links block col-xl-3 col-md-12">
+            <h2 class="title">CPS TESTS</h2>
+            <div class="links">
+                <a class="link" href="{{ url_for('main_page', test_time = 1) }}">1 SECONDS TEST</a>
+                <a class="link" href="{{ url_for('main_page', test_time = 2) }}">2 SECONDS TEST</a>
+                <a class="link" href="{{ url_for('main_page', test_time = 5) }}">5 SECONDS TEST</a>
+                <a class="link" href="{{ url_for('main_page', test_time = 10) }}">10 SECONDS TEST</a>
+                <a class="link" href="{{ url_for('main_page', test_time = 15) }}">15 SECONDS TEST</a>
+                <a class="link" href="{{ url_for('main_page', test_time = 30) }}">30 SECONDS TEST</a>
+                <a class="link" href="{{ url_for('main_page', test_time = 60) }}">60 SECONDS TEST</a>
+                <a class="link" href="{{ url_for('main_page', test_time = 100) }}">100 SECONDS TEST</a>
+            </div>
         </div>
     </div>
 </div>
-
-    </div>
 
 {% endblock %}
 

@@ -27,7 +27,7 @@ button, button:active, button:focus {
 
 /*  Header  */
 .header{
-    margin-top: 20px;
+    margin: 25px 0;
 }
 .header .row{
     justify-content: space-between;
@@ -38,7 +38,7 @@ button, button:active, button:focus {
     align-items: center;
 }
 .header .header__logo .img{
-    width: 75px;
+    width: 70px;
     height: auto;
     margin-right: 20px;
 }
@@ -51,7 +51,7 @@ button, button:active, button:focus {
     justify-content: space-between;
 }
 .header .header__nav .navigation .item{
-    font-size: 20px;
+    font-size: 22px;
     transition: .3s ease;
 }
 .header .header__nav .navigation .item:hover{
