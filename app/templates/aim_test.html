@@ -1,0 +1,14 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aim.css') }}">
+    <title>Aim Test - {{ test_time }} second(s) test</title>
+</head>
+
+{% extends "base.html" %}
+
+
+{% block content %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/aim.js') }}"></script>
+{% endblock %}

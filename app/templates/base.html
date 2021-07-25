@@ -30,9 +30,10 @@
                 <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="img">
                 <h2 class="name">CLICKSPEED.RU</h2>
             </div>
-            <div class="header__nav col-xl-3 col-lg-5 col-md-5 col-xs-12">
+            <div class="header__nav col-xl-5 col-lg-6 col-md-7 col-xs-12">
                 <nav class="navigation">
-                    <a class="item" href="{{ url_for('main_page', test_time=10) }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                    <a class="item" href="{{ url_for('cps_test_page', test_time=10) }}"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> CPS test</a>
+                    <a href="{{ url_for('aim_test_page', test_time=10) }}" class="item"><i class="fa fa-bullseye" aria-hidden="true"></i> Aim test</a>
                     <a class="item" href="https://vk.com/s1riys"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
                     <a class="item" href="https://github.com/S1riyS/CLICKSPEED.RU"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
                 </nav>
@@ -50,7 +51,7 @@
 <footer class="footer" role="contentinfo">
     <div class="container-fluid">
         <div class="row">
-            <p class="col-xl-3 col-12">Copyright © 2015  <span>SPEEDCLICK.RU</span></p>
+            <p class="col-xl-3 col-12">Copyright © 2021  <span>SPEEDCLICK.RU</span></p>
             <p class="col-xl-3 col-12">Developed by <span><a href="https://vk.com/s1riys">S1riyS</a></span></p>
         </div>
     </div>
