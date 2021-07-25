@@ -63,6 +63,10 @@ button, button:active, button:focus {
     transform: scale(1.1);
 }
 
+.main{
+    flex-grow: 1;
+}
+
 /*  Footer  */
 .footer{
     width: 100%;
@@ -97,10 +101,9 @@ button, button:active, button:focus {
         margin-bottom: 10px;
     }
     .header .header__logo .img{
-        
         margin-right: 10px;
     }
     .header .header__nav .navigation .item{
-        font-size: 17px;
+        font-size: 14px;
     }
 }
