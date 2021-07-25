@@ -1,6 +1,7 @@
 .main{
     display: flex;
     justify-content: center;
+    flex-grow: 1;
 }
 
 .main .row{
@@ -68,7 +69,7 @@
 
 .main__links{
     text-align: center;
-    width: 20%
+    width: 20%;
 }
 .main__links .links{
     display: flex;
