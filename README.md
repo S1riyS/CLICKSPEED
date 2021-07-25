@@ -12,9 +12,10 @@ Then, to install all the necessary modules, you need to write the following comm
 ```sh
 pip install -r requirements.txt
 ```
+Now you can start *run.py* file.
 
 ## Preview
 #### Main page
-![alt text](https://skrinshoter.ru/i/250721/0sJDnkUF.png?download=1&name=Скриншот%2025-07-2021%2010:30:32.png)
+![alt text](https://skrinshoter.ru/i/250721/udgIfgoW.png?download=1&name=Скриншот%2025-07-2021%2013:43:30.png)
 #### 404 Error page
-![alt text](https://skrinshoter.ru/i/250721/fkOrPyNc.png?download=1&name=Скриншот%2025-07-2021%2013:00:31.png)
+![alt text](https://skrinshoter.ru/i/250721/hghDhZqT.png?download=1&name=Скриншот%2025-07-2021%2013:44:11.png)
