@@ -7,6 +7,28 @@
 
 
 {% block content %}
+<div class="main__test block col-lg-8 offset-lg-2 col-12">
+    <h2 class="title">{{ test_time }} seconds test</h2>
+    <div class="info">
+        <div class="item item1">
+            <p id="timer" class="value">{{ test_time }}.00</p>
+            <p>Timer</p>
+        </div>
+        <div class="item item2">
+            <p id="cps" class="value">0.00</p>
+            <p>Targets/s</p>
+        </div>
+        <div class="item item3">
+            <p id="counter" class="value">0</p>
+            <p>Score</p>
+        </div>
+    </div>
+    <div class="game-area__wrapper">
+        <div class="game-area">
+            <button class="game__start-btn">Click here to start playing</button>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
