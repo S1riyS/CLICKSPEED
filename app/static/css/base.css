@@ -52,11 +52,14 @@ button, button:active, button:focus {
 .header .header__nav .navigation{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .header .header__nav .navigation .item{
     font-size: 22px;
     transition: .3s ease;
+    display: inline-block;
+    margin: 0 15px 10px 15px;
 }
 .header .header__nav .navigation .item:hover{
     color: #2ecc71;
@@ -87,6 +90,7 @@ button, button:active, button:focus {
 .footer .row span{
     color: #ffffff;
     font-size: 17px;
+    margin-left: 3px;
 }
 
 @media (max-width: 1201px){
@@ -98,12 +102,12 @@ button, button:active, button:focus {
 @media (max-width: 770px){
     .header .header__logo{
         justify-content: center;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
     .header .header__logo .img{
         margin-right: 10px;
     }
     .header .header__nav .navigation .item{
-        font-size: 14px;
+        font-size: 17px;
     }
 }
