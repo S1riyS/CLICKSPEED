@@ -114,3 +114,12 @@
         text-align: center;
     }
 }
+
+@media (max-height: 550px) {
+    .info{
+        margin-bottom: 15px;
+    }
+    .game-area {
+        height: 300px;
+    }
+}
