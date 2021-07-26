@@ -1,14 +1,14 @@
-var clicks = 0; // clicks
-var countdownValue = parseURLParams(window.location.href)['test_time'][0]; // seconds
-var time = 0; // current time in timer
-var cps = 0; // clicks per second
+let clicks = 0; // clicks
+let countdownValue = parseURLParams(window.location.href)['test_time'][0]; // seconds
+let time = 0; // current time in timer
+let cps = 0; // clicks per second
 
-var counter = document.getElementById('counter');
-var timerElement = document.getElementById('timer');
-var cpsCounter = document.getElementById('cps');
-var clickButton = document.getElementById('start-btn');
+let counter = document.getElementById('counter');
+let timerElement = document.getElementById('timer');
+let cpsCounter = document.getElementById('cps');
+let clickButton = document.getElementById('start-btn');
 
-var isTestStarted = false;
+let isTestStarted = false;
 
 // Получаем все url параметры
 function parseURLParams(url) {
@@ -16,7 +16,8 @@ function parseURLParams(url) {
         queryEnd = url.indexOf("#") + 1 || url.length + 1,
         query = url.slice(queryStart, queryEnd - 1),
         pairs = query.replace(/\+/g, " ").split("&"),
-        params = {}, i, n, v, nv;
+        params = {},
+        i, n, v, nv;
 
     if (query === url || query === "") return;
 
