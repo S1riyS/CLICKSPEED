@@ -1,3 +1,4 @@
+/* General settings */
 body{
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
@@ -28,6 +29,18 @@ button, button:active, button:focus {
     border: none;
 }
 
+/*  Scrollbar  */
+body::-webkit-scrollbar {
+  width: 14px;               /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: #343434;        /* цвет дорожки */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #565656;    /* цвет плашки */
+  border-radius: 6px;       /* закругления плашки */
+  border: 3px solid #343434;  /* padding вокруг плашки */
+}
 
 /*  Header  */
 .header{
@@ -52,7 +65,7 @@ button, button:active, button:focus {
 .header .header__nav .navigation{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
 }
 .header .header__nav .navigation .item{
@@ -94,20 +107,23 @@ button, button:active, button:focus {
 }
 
 @media (max-width: 1201px){
+    .header .header__logo{
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    .header .header__nav .navigation{
+        justify-content: center;
+    }
+    .header .header__nav .navigation .item{
+        font-size: 18px;
+    }
     .footer{
         margin-top: 15px;
     }
 }
 /*  Media  */
 @media (max-width: 770px){
-    .header .header__logo{
-        justify-content: center;
-        margin-bottom: 15px;
-    }
     .header .header__logo .img{
         margin-right: 10px;
-    }
-    .header .header__nav .navigation .item{
-        font-size: 17px;
     }
 }

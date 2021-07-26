@@ -26,11 +26,11 @@
 <header class="header">
     <div class="container-fluid">
         <div class="row">
-            <div class="header__logo col-xl-4 col-lg-5 col-md-6 col-xs-12">
+            <div class="header__logo col-xl-4 col-lg-5 col-md-12 col-xs-12">
                 <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="img">
                 <h2 class="name">CLICKSPEED.RU</h2>
             </div>
-            <div class="header__nav col-xl-6 col-lg-7 col-md-6 col-xs-12">
+            <div class="header__nav col-xl-8 col-lg-7 col-md-12 col-xs-12">
                 <nav class="navigation">
                     <a class="item" href="{{ url_for('cps_test_page', test_time=10) }}"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> CPS test</a>
                     <a href="{{ url_for('aim_test_page', test_time=10) }}" class="item"><i class="fa fa-bullseye" aria-hidden="true"></i> Aim test</a>
