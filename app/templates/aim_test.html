@@ -27,7 +27,7 @@
             </div>
             <div class="game-area__wrapper">
                 <div class="game-area" id="game-area">
-                    <button class="game__start-btn" onclick="startGame()"><span>Click here to start playing</span></button>
+                    <button class="game__start-btn"><span>Click here to start playing</span></button>
                 </div>
             </div>
         </div>
@@ -36,5 +36,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='js/aim.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/aim.js') }}"></script>
 {% endblock %}

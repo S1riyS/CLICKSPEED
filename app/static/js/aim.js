@@ -1,3 +1,6 @@
+import { parseURLParams } from './modules/url_parser.js';
+import { getRandomInt } from './modules/random.js';
+
 let targetCreateInterval = 500; //milliseconds
 
 let isGameStarted = false;
@@ -9,10 +12,12 @@ let targetPerSecond = 0;
 var countdownValue = parseURLParams(window.location.href)['test_time'][0];
 
 var time = 0; // current time in timer
+let timer;
 
 const timerElement = document.getElementById('timer');
 const targetPerSecondElement = document.getElementById('targetPerSecond');
 const scoreElement = document.getElementById('score');
+
 
 // Target settings
 let target = {
@@ -20,35 +25,6 @@ let target = {
     "height": 50,
     "main-color": "rgb(244 123 53)",
     "background-color": "rgb(255 255 255)"
-}
-
-// Получаем все url параметры
-function parseURLParams(url) {
-    var queryStart = url.indexOf("?") + 1,
-        queryEnd = url.indexOf("#") + 1 || url.length + 1,
-        query = url.slice(queryStart, queryEnd - 1),
-        pairs = query.replace(/\+/g, " ").split("&"),
-        params = {},
-        i, n, v, nv;
-
-    if (query === url || query === "") return;
-
-    for (i = 0; i < pairs.length; i++) {
-        nv = pairs[i].split("=", 2);
-        n = decodeURIComponent(nv[0]);
-        v = decodeURIComponent(nv[1]);
-
-        if (!params.hasOwnProperty(n)) params[n] = [];
-        params[n].push(nv.length === 2 ? v : null);
-    }
-    return params;
-}
-
-//Рандомное число от min до max   
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
 }
 
 //Инициализация теста
@@ -59,6 +35,7 @@ function startGame() {
     time = 0;
     startTestLoop();
 }
+startGameButton.onclick = startGame;
 
 //Создание target
 function drawTarget(x, y) {
@@ -66,6 +43,7 @@ function drawTarget(x, y) {
     element.className = "target";
     element.onclick = function () {
         hitTarget();
+        $(this).remove();
     };
     element.style.position = "absolute";
     element.style.top = y + "px";
@@ -83,14 +61,14 @@ function drawTarget(x, y) {
 
 function createTarget() {
     if (isGameStarted) {
-        x = getRandomInt(target["width"], gameSurface.offsetWidth - target["width"]);
-        y = getRandomInt(target["height"], gameSurface.offsetHeight - target["height"]);
+        let x = getRandomInt(target["width"], gameSurface.offsetWidth - target["width"]);
+        let y = getRandomInt(target["height"], gameSurface.offsetHeight - target["height"]);
         drawTarget(x, y)
     }
 }
 
 function deleteAllTargets() {
-    targets = document.getElementsByClassName("target")
+    let targets = document.getElementsByClassName("target")
     while (targets.length) {
         targets[0].parentNode.removeChild(targets[0]);
     }
@@ -100,6 +78,7 @@ function hitTarget() {
     score++;
     scoreElement.innerHTML = score;
 }
+
 // Игровой цикл
 function startTestLoop() {
     time++;

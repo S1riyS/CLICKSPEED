@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}">
@@ -10,54 +11,51 @@
     <meta name="theme-color" content="#ffffff">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    {% block scripts %}
+    {% endblock %}
 </head>
 
 <body>
-<!-- Header -->
-<header class="header">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="header__logo col-xl-4 col-lg-5 col-md-12 col-xs-12">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="img">
-                <h2 class="name">CLICKSPEED.RU</h2>
-            </div>
-            <div class="header__nav col-xl-8 col-lg-7 col-md-12 col-xs-12">
-                <nav class="navigation">
-                    <a class="item" href="{{ url_for('cps_test_page', test_time=10) }}"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> CPS test</a>
-                    <a href="{{ url_for('aim_test_page', test_time=10) }}" class="item"><i class="fa fa-bullseye" aria-hidden="true"></i> Aim test</a>
-                    <a class="item" href="https://vk.com/s1riys"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
-                    <a class="item" href="https://github.com/S1riyS/CLICKSPEED.RU"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
-                </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="header__logo col-xl-4 col-lg-5 col-md-12 col-xs-12">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="img">
+                    <h2 class="name">CLICKSPEED.RU</h2>
+                </div>
+                <div class="header__nav col-xl-8 col-lg-7 col-md-12 col-xs-12">
+                    <nav class="navigation">
+                        <a class="item" href="{{ url_for('cps_test_page', test_time=10) }}"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> CPS test</a>
+                        <a href="{{ url_for('aim_test_page', test_time=10) }}" class="item"><i class="fa fa-bullseye" aria-hidden="true"></i> Aim test</a>
+                        <a class="item" href="https://vk.com/s1riys"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
+                        <a class="item" href="https://github.com/S1riyS/CLICKSPEED.RU"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<!-- Begin page content -->
-<main role="main" class="main">
-    {% block content %}{% endblock %}
-</main>
+    <!-- Begin page content -->
+    <main role="main" class="main">
+        {% block content %}{% endblock %}
+    </main>
 
-<!-- Footer -->
-<footer class="footer" role="contentinfo">
-    <div class="container-fluid">
-        <div class="row">
-            <p class="col-xl-3 col-12">Copyright © 2021  <span>SPEEDCLICK.RU</span></p>
-            <p class="col-xl-3 col-12">Developed by <span><a href="https://vk.com/s1riys">S1riyS</a></span></p>
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container-fluid">
+            <div class="row">
+                <p class="col-xl-3 col-12">Copyright © 2021 <span>SPEEDCLICK.RU</span></p>
+                <p class="col-xl-3 col-12">Developed by <span><a href="https://vk.com/s1riys">S1riyS</a></span></p>
+            </div>
         </div>
-    </div>
-</footer>
-<!-- Scripts -->
-{% block scripts %}
-{% endblock %}
+    </footer>
 </body>
+
 </html>

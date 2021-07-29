@@ -24,8 +24,8 @@
                     <p>Score</p>
                 </div>
             </div>
-            <div class="click-area ripple" onclick="trigger()">
-                <button id="start-btn" onclick="trigger() ">Click here to start playing</button>
+            <div id="click-area" class="click-area ripple">
+                <button id="start-btn">Click here to start playing</button>
             </div>
         </div>
         <div class="main__links block col-xl-3 col-md-12">
@@ -46,6 +46,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='js/cps.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/cps.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ripple.js') }}"></script>
 {% endblock %}
