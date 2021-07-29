@@ -1,7 +1,11 @@
-import { parseURLParams } from './modules/url_parser.js';
-import { getRandomInt } from './modules/random.js';
+import {
+    parseURLParams
+} from './modules/url_parser.js';
+import {
+    getRandomInt
+} from './modules/random.js';
 
-let targetCreateInterval = 500; //milliseconds
+let targetCreateInterval = 400; //milliseconds
 
 let isGameStarted = false;
 const gameSurface = document.getElementById("game-area");
@@ -21,10 +25,11 @@ const scoreElement = document.getElementById('score');
 
 // Target settings
 let target = {
-    "width": 50,
-    "height": 50,
+    "width": 80,
+    "height": 80,
     "main-color": "rgb(244 123 53)",
-    "background-color": "rgb(255 255 255)"
+    "background-color": "rgb(255 255 255)",
+    "animation-time": 5
 }
 
 //Инициализация теста
@@ -43,7 +48,7 @@ function drawTarget(x, y) {
     element.className = "target";
     element.onclick = function () {
         hitTarget();
-        $(this).remove();
+        this.remove();
     };
     element.style.position = "absolute";
     element.style.top = y + "px";
@@ -55,8 +60,13 @@ function drawTarget(x, y) {
     element.style.borderRadius = "50%";
     element.style.boxShadow =
         `${target["main-color"]} 0px 0px 0px ${target["width"] / 6.5}px inset, ${target["background-color"]} 0px 0px 0px ${target["width"] / 3}px inset`;
+    element.style.animation = `targetAppearance ${target["animation-time"]}s ease`;
 
     gameSurface.appendChild(element);
+
+    setTimeout(function () {
+        element.remove();
+    }, target["animation-time"] * 1000)
 }
 
 function createTarget() {
@@ -77,6 +87,8 @@ function deleteAllTargets() {
 function hitTarget() {
     score++;
     scoreElement.innerHTML = score;
+    let sound = document.getElementById("click-sound");
+    sound.play();
 }
 
 // Игровой цикл

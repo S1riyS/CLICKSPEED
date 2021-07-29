@@ -98,7 +98,21 @@
 }
 
 /*  Target  */
-.target {}
+.target {
+    animation-iteration-count: 1;
+}
+
+@keyframes targetAppearance{
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
 
 @media (max-width: 767px) {
     .game-area {
