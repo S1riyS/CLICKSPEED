@@ -1,19 +1,20 @@
-import { parseURLParams } from './modules/url_parser.js';
+import {
+    parseURLParams
+} from './modules/url_parser.js';
 
-let clicks = 0; // clicks
-let countdownValue = parseURLParams(window.location.href)['test_time'][0]; // seconds
-let time = 0; // current time in timer
-let timer;
-let cps = 0; // clicks per second
+let isTestStarted = false,
+    clicks = 0, // clicks
+    cps = 0, // clicks per second
+    countdownValue = parseURLParams(window.location.href)['test_time'][0], // seconds
+    time = 0, // current time in timer
+    timer;
 
-const counter = document.getElementById('counter');
-const timerElement = document.getElementById('timer');
-const cpsCounter = document.getElementById('cps');
+const counter = document.getElementById('counter'),
+    timerElement = document.getElementById('timer'),
+    cpsCounter = document.getElementById('cps'),
+    clickButton = document.getElementById('start-btn'),
+    clickArea = document.getElementById('click-area');
 
-const clickButton = document.getElementById('start-btn');
-const clickArea = document.getElementById('click-area');
-
-let isTestStarted = false;
 
 // Функция, которая отрабатывает при нажатии на "кнопку"
 function startGame() {
@@ -43,8 +44,7 @@ function startTestLoop() {
         clearTimeout(timer);
         isTestStarted = false;
 
-    }
-    else {
+    } else {
         timer = setTimeout(startTestLoop, 10);
     }
 }

@@ -1,32 +1,27 @@
-import {
-    parseURLParams
-} from './modules/url_parser.js';
-import {
-    getRandomInt
-} from './modules/random.js';
+import { parseURLParams } from './modules/url_parser.js';
+import { getRandomInt } from './modules/random.js';
 
-let targetCreateInterval = 400; //milliseconds
 
-let isGameStarted = false;
-const gameSurface = document.getElementById("game-area");
-const startGameButton = document.getElementsByClassName("game__start-btn")[0];
+let isGameStarted = false,
+    score = 0,
+    targetPerSecond = 0,
+    countdownValue = parseURLParams(window.location.href)['test_time'][0],
+    time = 0, // current time in timer
+    timer,
+    targetCreateInterval = 400; //milliseconds
 
-let score = 0;
-let targetPerSecond = 0;
-var countdownValue = parseURLParams(window.location.href)['test_time'][0];
 
-var time = 0; // current time in timer
-let timer;
-
-const timerElement = document.getElementById('timer');
-const targetPerSecondElement = document.getElementById('targetPerSecond');
-const scoreElement = document.getElementById('score');
+const gameSurface = document.getElementById("game-area"),
+    startGameButton = document.getElementsByClassName("game__start-btn")[0],
+    timerElement = document.getElementById('timer'),
+    targetPerSecondElement = document.getElementById('targetPerSecond'),
+    scoreElement = document.getElementById('score');
 
 
 // Target settings
-let target = {
-    "width": 80,
-    "height": 80,
+const target = {
+    "width": 70,
+    "height": 70,
     "main-color": "rgb(244 123 53)",
     "background-color": "rgb(255 255 255)",
     "animation-time": 5
