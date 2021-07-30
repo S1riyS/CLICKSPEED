@@ -128,7 +128,6 @@ body::-webkit-scrollbar-thumb {
     border-radius: 3px;
     padding: 0;
     background-color: #151515;
-    border: 1px solid #fff;
 }
 
 .dropdown-menu .dropdown-item {
