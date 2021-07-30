@@ -1,8 +1,8 @@
-.main{
+.main {
     flex-grow: 1;
 }
 
-.error__wrapper{
+.error__wrapper {
     display: flex;
     height: 100%;
     justify-content: center;
@@ -10,16 +10,16 @@
     align-items: center;
 }
 
-.error__wrapper .error_text{
+.error__wrapper .error_text {
     font-size: 15rem;
 }
 
-.error__wrapper p{
+.error__wrapper p {
     font-size: 2rem;
 }
 
-@media (max-width: 770px){
-    .error__wrapper .error_text{
+@media (max-width: 770px) {
+    .error__wrapper .error_text {
         font-size: 10rem;
     }
 }

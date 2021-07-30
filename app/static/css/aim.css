@@ -104,14 +104,16 @@
     animation-iteration-count: 1;
 }
 
-@keyframes targetAppearance{
-    0%{
+@keyframes targetAppearance {
+    0% {
         transform: scale(0);
     }
-    50%{
+
+    50% {
         transform: scale(1);
     }
-    100%{
+
+    100% {
         transform: scale(0);
     }
 }
@@ -131,9 +133,10 @@
 }
 
 @media (max-height: 550px) {
-    .info{
+    .info {
         margin-bottom: 15px;
     }
+
     .game-area {
         height: 300px;
     }
