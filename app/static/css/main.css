@@ -23,9 +23,10 @@
     padding: 16px;
     padding-top: 20px;
     border-radius: 5px;
-    transition: all .2s ease;
-    background: linear-gradient(10deg, #252830, #434547);
     box-shadow: 0px 0px 15px rgb(50 50 50 / 50%);
+    transition: all .2s ease;
+    background-size: 200% !important;
+    background-position: left !important;
 }
 
 .test-card .card-icon {
@@ -42,9 +43,21 @@
     font-size: 16px;
 }
 
+.tests-list .card-1 {
+    background-image: linear-gradient(to right, #0ba360 0%, #3cba92 100%);
+}
+
+.tests-list .card-2 {
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+.tests-list .card-3 {
+    background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
+}
+
 .test-card:hover {
     transform: translateY(-10px);
-    background: linear-gradient(10deg, #414655, #606366);
+    background-position: right !important;
 }
 
 @media (max-width: 1201px) {
