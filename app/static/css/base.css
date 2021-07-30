@@ -64,7 +64,10 @@ body::-webkit-scrollbar-thumb {
 
 /*  Header  */
 .header {
-    margin: 25px 0;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    background: rgb(37, 37, 37);
+    background: linear-gradient(15deg, rgba(37, 37, 37, 1) 0%, rgba(48, 48, 48, 1) 100%);
 }
 
 .header .row {
@@ -98,7 +101,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 22px;
     transition: .3s ease;
     display: inline-block;
-    margin: 0 15px 10px 15px;
+    margin: 0 15px;
     color: #ffffff;
 }
 
@@ -193,5 +196,9 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 770px) {
     .header .header__logo .img {
         margin-right: 10px;
+    }
+
+    .header .header__nav .navigation .item {
+        margin-bottom: 10px;
     }
 }

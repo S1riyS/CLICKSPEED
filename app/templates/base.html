@@ -28,10 +28,10 @@
     <header class="header">
         <div class="container-fluid">
             <div class="row">
-                <div class="header__logo col-xl-4 col-lg-5 col-md-12 col-xs-12">
+                <a href="{{ url_for('home_page') }}" class="header__logo col-xl-4 col-lg-5 col-md-12 col-xs-12">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="img">
                     <h2 class="name">CLICKSPEED.RU</h2>
-                </div>
+                </a>
                 <div class="header__nav col-xl-8 col-lg-7 col-md-12 col-xs-12">
                     <nav class="navigation">
                         <button type="button" class="item btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gamepad" aria-hidden="true"></i> Games</button>
