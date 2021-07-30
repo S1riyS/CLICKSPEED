@@ -16,7 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     {% block scripts %}
     {% endblock %}
 </head>
@@ -32,8 +34,12 @@
                 </div>
                 <div class="header__nav col-xl-8 col-lg-7 col-md-12 col-xs-12">
                     <nav class="navigation">
-                        <a class="item" href="{{ url_for('cps_test_page', test_time=10) }}"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> CPS test</a>
-                        <a href="{{ url_for('aim_test_page', test_time=10) }}" class="item"><i class="fa fa-bullseye" aria-hidden="true"></i> Aim test</a>
+                        <button type="button" class="item btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gamepad" aria-hidden="true"></i> Games</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ url_for('cps_test_page', test_time=10) }}"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> CPS test</a>
+                            <a class="dropdown-item" href="{{ url_for('aim_test_page', test_time=10) }}"><i class="fa fa-bullseye" aria-hidden="true"></i> Aim test</a>
+                            <a href="" class="dropdown-item"><i class="fa fa-clock-o" aria-hidden="true"></i> Reaction test</a>
+                        </div>
                         <a class="item" href="https://vk.com/s1riys"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
                         <a class="item" href="https://github.com/S1riyS/CLICKSPEED.RU"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
                     </nav>
@@ -52,7 +58,13 @@
         <div class="container-fluid">
             <div class="row">
                 <p class="col-xl-3 col-12">Copyright © 2021 <span>SPEEDCLICK.RU</span></p>
-                <p class="col-xl-3 col-12">Developed by <span><a href="https://vk.com/s1riys">S1riyS</a></span></p>
+                <p class="col-xl-3 col-12">Developed by
+                    <span>
+                        <a href="https://vk.com/s1riys">
+                            <i class="fa fa-code" aria-hidden="true"></i> S1riyS
+                        </a>
+                    </span>
+                </p>
             </div>
         </div>
     </footer>

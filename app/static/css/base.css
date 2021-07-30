@@ -1,5 +1,5 @@
 /* General settings */
-body{
+body {
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
     background: #181818;
@@ -9,82 +9,143 @@ body{
     min-height: 100vh;
     max-width: 100vw;
 }
-h1, h2, h3, h4, h5, h6, p{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     margin: 0;
 }
-.container-fluid{
+
+.container-fluid {
     width: 90%;
 }
-a{
-   color: #fff;
-   text-decoration: none;
-}
-a:hover{
+
+a {
     color: #fff;
     text-decoration: none;
 }
 
-button, button:active, button:focus {
-    outline: none;
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+button,
+button:active,
+button:focus {
+    outline: none !important;
     border: none;
+    box-shadow: none !important;
 }
 
 /*  Scrollbar  */
 body::-webkit-scrollbar {
-  width: 14px;               /* ширина scrollbar */
+    width: 14px;
+    /* ширина scrollbar */
 }
+
 body::-webkit-scrollbar-track {
-  background: #343434;        /* цвет дорожки */
+    background: #343434;
+    /* цвет дорожки */
 }
+
 body::-webkit-scrollbar-thumb {
-  background-color: #565656;    /* цвет плашки */
-  border-radius: 6px;       /* закругления плашки */
-  border: 3px solid #343434;  /* padding вокруг плашки */
+    background-color: #565656;
+    /* цвет плашки */
+    border-radius: 6px;
+    /* закругления плашки */
+    border: 3px solid #343434;
+    /* padding вокруг плашки */
 }
 
 /*  Header  */
-.header{
+.header {
     margin: 25px 0;
 }
-.header .row{
+
+.header .row {
     justify-content: space-between;
     align-items: center;
 }
-.header .header__logo{
+
+.header .header__logo {
     display: flex;
     align-items: center;
 }
-.header .header__logo .img{
+
+.header .header__logo .img {
     width: 70px;
     height: auto;
     margin-right: 20px;
 }
-.header .header__logo .name{
+
+.header .header__logo .name {
     display: inline;
 }
-.header .header__nav .navigation{
+
+.header .header__nav .navigation {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-wrap: wrap;
 }
-.header .header__nav .navigation .item{
+
+.header .header__nav .navigation .item {
     font-size: 22px;
     transition: .3s ease;
     display: inline-block;
     margin: 0 15px 10px 15px;
+    color: #ffffff;
 }
-.header .header__nav .navigation .item:hover{
+
+.header .header__nav .navigation .item:hover {
     color: #2ecc71;
     transform: scale(1.1);
 }
 
-.main{
+.main {
     flex-grow: 1;
 }
 
+/*  Dropdown menu */
+.dropdown-toggle {
+    border: none !important;
+}
+
+.dropdown-toggle::after {
+    vertical-align: middle;
+}
+
+.dropdown-menu {
+    text-align: center;
+    border-radius: 3px;
+    padding: 0;
+    background-color: #151515;
+    border: 1px solid #fff;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: .75rem 1.5rem;
+    color: #fff;
+    transition: .2s;
+
+}
+
+.dropdown-menu .dropdown-item:hover {
+    padding: 1.10rem 1.5rem;
+    background: linear-gradient(15deg, #1D976C, #93F9B9);
+}
+
+.dropdown-menu .dropdown-item:focus {
+    background: linear-gradient(15deg, #1D976C, #93F9B9);
+}
+
 /*  Footer  */
-.footer{
+.footer {
     width: 100%;
     padding: 15px;
     background-color: #151515;
@@ -92,38 +153,45 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
     flex-shrink: 0;
 }
-.footer .row{
+
+.footer .row {
     justify-content: center;
     height: 100%;
     align-items: center;
 }
-.footer .row p{
+
+.footer .row p {
     display: inline;
 }
-.footer .row span{
+
+.footer .row span {
     color: #ffffff;
     font-size: 17px;
     margin-left: 3px;
 }
 
-@media (max-width: 1201px){
-    .header .header__logo{
+@media (max-width: 1201px) {
+    .header .header__logo {
         justify-content: center;
         margin-bottom: 15px;
     }
-    .header .header__nav .navigation{
+
+    .header .header__nav .navigation {
         justify-content: center;
     }
-    .header .header__nav .navigation .item{
+
+    .header .header__nav .navigation .item {
         font-size: 18px;
     }
-    .footer{
+
+    .footer {
         margin-top: 15px;
     }
 }
+
 /*  Media  */
-@media (max-width: 770px){
-    .header .header__logo .img{
+@media (max-width: 770px) {
+    .header .header__logo .img {
         margin-right: 10px;
     }
 }
