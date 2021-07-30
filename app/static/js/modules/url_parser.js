@@ -1,6 +1,6 @@
 // Получаем все url параметры
 export function parseURLParams(url) {
-    var queryStart = url.indexOf("?") + 1,
+    let queryStart = url.indexOf("?") + 1,
         queryEnd = url.indexOf("#") + 1 || url.length + 1,
         query = url.slice(queryStart, queryEnd - 1),
         pairs = query.replace(/\+/g, " ").split("&"),
