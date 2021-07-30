@@ -8,7 +8,7 @@ let isGameStarted = false,
     countdownValue = parseURLParams(window.location.href)['test_time'][0],
     time = 0, // current time in timer
     timer,
-    targetCreateInterval = 400; //milliseconds
+    targetCreateInterval = 500; //milliseconds
 
 
 const gameSurface = document.getElementById("game-area"),
