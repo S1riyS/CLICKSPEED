@@ -1,0 +1,34 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>CLICKSPEED.RU</title>
+</head>
+
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="tests-list col-12">
+            <a class="test-card" href="{{ url_for('cps_test_page', test_time=10) }}">
+                <i class="card-icon fa fa-mouse-pointer fa-4x" aria-hidden="true"></i>
+                <h3 class="card-title">CPS Test</h3>
+                <p class="card-description">Click as fast as possible.</p>
+            </a>
+            <a class="test-card" href="{{ url_for('aim_test_page', test_time=10) }}">
+                <i class="card-icon fa fa-bullseye fa-4x" aria-hidden="true"></i>
+                <h3 class="card-title">Aim Test</h3>
+                <p class="card-description">How many targets can you hit at the specified time?</p>
+            </a>
+            <a class="test-card" href="#">
+                <i class="card-icon fa fa-clock-o fa-4x" aria-hidden="true"></i>
+                <h3 class="card-title">Reaction time</h3>
+                <p class="card-description">Find out your reaction time.</p>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

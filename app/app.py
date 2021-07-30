@@ -5,6 +5,11 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 
+@app.route('/', methods=['GET', 'POST'])
+def home_page():
+    return render_template('main.html')
+
+
 def check_test_time(test_time: str):
     if test_time.isdigit() and test_time in {'1', '2', '5', '10', '15', '30', '60', '100'}:
         return True
