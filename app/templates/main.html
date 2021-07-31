@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <title>CLICKSPEED.RU</title>
+    <title>{{ WEBSITE_URL }}</title>
 </head>
 
 {% extends "base.html" %}
@@ -20,7 +20,7 @@
                 <h3 class="card-title">Aim Test</h3>
                 <p class="card-description">How many targets can you hit at the specified time?</p>
             </a>
-            <a class="test-card card-3" href="#">
+            <a class="test-card card-3" href="{{ url_for('reaction_test_page') }}">
                 <i class="card-icon fa fa-clock-o fa-4x" aria-hidden="true"></i>
                 <h3 class="card-title">Reaction time</h3>
                 <p class="card-description">Find out your reaction time.</p>

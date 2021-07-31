@@ -30,7 +30,7 @@
             <div class="row">
                 <a href="{{ url_for('home_page') }}" class="header__logo col-xl-4 col-lg-5 col-md-12 col-xs-12">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="img">
-                    <h2 class="name">CLICKSPEED.RU</h2>
+                    <h2 class="name">{{ WEBSITE_URL }}</h2>
                 </a>
                 <div class="header__nav col-xl-8 col-lg-7 col-md-12 col-xs-12">
                     <nav class="navigation">
@@ -38,7 +38,7 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ url_for('cps_test_page', test_time=10) }}"><i class="fa fa-mouse-pointer" aria-hidden="true"></i> CPS test</a>
                             <a class="dropdown-item" href="{{ url_for('aim_test_page', test_time=10) }}"><i class="fa fa-bullseye" aria-hidden="true"></i> Aim test</a>
-                            <a href="" class="dropdown-item"><i class="fa fa-clock-o" aria-hidden="true"></i> Reaction test</a>
+                            <a href="{{ url_for('reaction_test_page') }}" class="dropdown-item"><i class="fa fa-clock-o" aria-hidden="true"></i> Reaction test</a>
                         </div>
                         <a class="item" href="https://vk.com/s1riys"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
                         <a class="item" href="https://github.com/S1riyS/CLICKSPEED.RU"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
@@ -57,7 +57,7 @@
     <footer class="footer" role="contentinfo">
         <div class="container-fluid">
             <div class="row">
-                <p class="col-xl-3 col-12">Copyright © 2021 <span>SPEEDCLICK.RU</span></p>
+                <p class="col-xl-3 col-12">Copyright © 2021 <span>{{ WEBSITE_URL }}</span></p>
                 <p class="col-xl-3 col-12">Developed by
                     <span>
                         <a href="https://vk.com/s1riys">
