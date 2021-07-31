@@ -1,0 +1,27 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reaction.css') }}">
+    <title>{{ WEBSITE_URL }} - Reaction time test</title>
+</head>
+
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="main-test block col-12">
+            <h2 class="title">Reaction Time Test</h2>
+            <div class="test-area">
+                <div class="test-content">
+                    <div class="test-icon"><i class="fa fa-bolt" aria-hidden="true"></i></div>
+                    <h3 class="test-title">Start test</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
