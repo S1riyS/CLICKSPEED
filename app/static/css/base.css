@@ -62,6 +62,18 @@ body::-webkit-scrollbar-thumb {
     /* padding вокруг плашки */
 }
 
+.block {
+    background: #252525;
+    padding: 15px 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.title {
+    margin: 5px 0 20px;
+    font-size: 25px;
+}
+
 /*  Header  */
 .header {
     padding: 15px 0;

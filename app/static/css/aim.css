@@ -36,17 +36,6 @@
 }
 
 /* Main */
-.block {
-    background: #252525;
-    padding: 15px 20px;
-    border-radius: 5px;
-}
-
-.title {
-    margin: 5px 0 20px;
-    font-size: 25px;
-}
-
 .main__test {
     width: 60%;
     text-align: center;
