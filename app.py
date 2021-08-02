@@ -49,3 +49,7 @@ def reaction_test_page():
 @app.errorhandler(404)
 def error_404_page(error):
     return render_template('404.html')
+
+
+if __name__ == "__main__":
+    app.run(port=8080, host='127.0.0.1', debug=True)
