@@ -11,10 +11,11 @@
     <div class="row">
         <div class="main-test block col-12">
             <h2 class="title">Reaction Time Test</h2>
-            <div class="test-area">
+            <div class="test-area" data-state="splash" id="test-area">
                 <div class="test-content">
                     <div class="test-icon"><i class="fa fa-bolt" aria-hidden="true"></i></div>
                     <h3 class="test-title">Start test</h3>
+                    <p class="test-text"></p>
                 </div>
             </div>
         </div>
@@ -24,4 +25,5 @@
 {% endblock %}
 
 {% block scripts %}
+<script type="module" src="{{ url_for('static', filename='js/reaction.js') }}"></script>
 {% endblock %}

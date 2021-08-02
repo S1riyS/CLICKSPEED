@@ -1,7 +1,5 @@
 /* Test area */
 .test-area {
-    /*    background-color: rgb(75, 219, 106); GREEN*/
-    /*    background-color: rgb(219,75,83); RED*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,26 +12,50 @@
     cursor: pointer;
 }
 
-.test-content {
+/*  Test area with data-state  */
+.test-area[data-state="splash"] .test-content {
     transition: all 0.3s ease;
     opacity: 0.7;
 }
 
-.test-content:hover {
+.test-area[data-state="splash"] .test-content:hover {
     transform: scale(1.05);
     opacity: 1;
 }
 
+.test-area[data-state="waiting"] {
+    background-image: linear-gradient(15deg, #D31027 0%, #EA384D 100%)
+}
+
+.test-area[data-state="go"] {
+    background-image: linear-gradient(135deg, #10d35b 10%, #38ea7c 100%);
+}
+
+/*  Test area content  */
 .test-area .test-icon {
     margin-bottom: 15px;
-
 }
 
 .test-area .test-icon i {
-    font-size: 6em;
+    font-size: 7em;
+}
+
+.test-area .test-title {
+    margin-bottom: 5px;
+    font-size: 55px;
+}
+
+.test-area .test-text {
+    font-size: 20px;
 }
 
 /*  Media  */
+@media (max-width: 770px) {
+    .test-area .test-title {
+        font-size: 35px;
+    }
+}
+
 @media (max-height: 550px) {
     .test-area {
         height: 300px;
