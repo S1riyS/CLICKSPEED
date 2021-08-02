@@ -28,7 +28,7 @@
 }
 
 .test-area[data-state="go"] {
-    background-image: linear-gradient(135deg, #10d35b 10%, #38ea7c 100%);
+    background-image: linear-gradient(15deg, #10d35b 0%, #38ea7c 100%);
 }
 
 /*  Test area content  */
