@@ -40,7 +40,7 @@ function clearTimeoutList() {
     timeoutList = [];
 }
 
-$("#test-area").click(() => {
+$("#test-area").mousedown(() => {
     console.log(timeoutList);
     switch (testArea.dataset.state) {
         case "splash":
