@@ -32,19 +32,24 @@ clickArea.onclick = startGame;
 
 // Главная функция
 function startTestLoop() {
-    time++;
-    timerElement.innerHTML = (time / 100).toFixed(2);
-    cpsCounter.innerHTML = (clicks / (time / 100)).toFixed(2);
-    clickButton.innerHTML = '';
-
-    if (time >= countdownValue * 100) {
-        clicks = 0;
-        cps = 0;
-        clickButton.innerHTML = 'Click here to start playing';
-        clearTimeout(timer);
-        isTestStarted = false;
-
-    } else {
-        timer = setTimeout(startTestLoop, 10);
-    }
+    clearInterval(timer);
+    timer = setInterval(() => {
+        time += 10;
+        let dateTimer = new Date(time);
+        let currentTime = 
+            dateTimer.getUTCSeconds() + '.' + 
+            ('0' + dateTimer.getUTCMilliseconds()).slice(-3, -1);
+        
+        timerElement.innerHTML = currentTime
+        cpsCounter.innerHTML = (clicks / parseFloat(currentTime)).toFixed(2);
+        clickButton.innerHTML = '';
+        
+        if (time >= countdownValue * 1000) {
+            clicks = 0;
+            cps = 0;
+            clickButton.innerHTML = 'Click here to start playing';
+            clearInterval(timer);
+            isTestStarted = false;
+        }
+    }, 10)
 }

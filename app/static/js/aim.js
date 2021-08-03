@@ -88,19 +88,24 @@ function hitTarget() {
 
 // Игровой цикл
 function startTestLoop() {
-    time++;
-    timerElement.innerHTML = (time / 100).toFixed(2);
-    targetPerSecondElement.innerHTML = (score / (time / 100)).toFixed(2);
-
-    if (time >= countdownValue * 100) {
-        clearTimeout(timer);
-        deleteAllTargets();
-        startGameButton.style.display = "flex";
-        isGameStarted = false;
-
-    } else {
-        timer = setTimeout(startTestLoop, 10);
-    }
+    clearInterval(timer);
+    timer = setInterval(() => {
+        time += 10;
+        let dateTimer = new Date(time);
+        let currentTime = 
+            dateTimer.getUTCSeconds() + '.' + 
+            ('0' + dateTimer.getUTCMilliseconds()).slice(-3, -1);
+        
+        timerElement.innerHTML = currentTime;
+        targetPerSecondElement.innerHTML = (score / parseFloat(currentTime)).toFixed(2);
+        
+        if (time >= countdownValue * 1000) {
+            deleteAllTargets();
+            startGameButton.style.display = "flex";
+            isGameStarted = false;
+            clearInterval(timer);
+        }
+    }, 10)
 }
 
 //Отрисовка target раз в N миллисек
