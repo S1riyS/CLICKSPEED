@@ -9,15 +9,15 @@ let isTestStarted = false,
     time = 0, // current time in timer
     timer;
 
-const counter = document.getElementById('counter'),
-    timerElement = document.getElementById('timer'),
-    cpsCounter = document.getElementById('cps'),
-    clickButton = document.getElementById('start-btn'),
-    clickArea = document.getElementById('click-area');
+const counter = document.querySelector('#counter'),
+    timerElement = document.querySelector('#timer'),
+    cpsCounter = document.querySelector('#cps'),
+    clickButton = document.querySelector('#start-btn'),
+    clickArea = document.querySelector('#click-area');
 
 
 // Функция, которая отрабатывает при нажатии на "кнопку"
-function startGame() {
+function clickOnButton() {
     clicks++;
     counter.innerHTML = clicks;
 
@@ -28,8 +28,19 @@ function startGame() {
         clickButton.innerHTML = '';
     }
 }
-clickButton.onclick = startGame;
-clickArea.onclick = startGame;
+clickButton.onclick = clickOnButton;
+
+//Удаление/добавление класса ripple (мобильное устройсвтво/ПК)
+$(function () {
+    $(window).on('load resize', function () {
+        if ($(window).width() < 1201) {
+            clickArea.classList.remove('ripple');
+        } else {
+            clickArea.classList.add('ripple');
+        }
+    })
+})
+
 
 function updateHTML(time) {
     let dateTimer = new Date(time);
@@ -43,10 +54,11 @@ function updateHTML(time) {
 // Главная функция
 function startTestLoop() {
     clearInterval(timer);
+
     timer = setInterval(() => {
         time += 10;
         updateHTML(time);
-        
+
         if (time >= countdownValue * 1000) {
             timerElement.innerHTML = countdownValue + ".00"
             clicks = 0;

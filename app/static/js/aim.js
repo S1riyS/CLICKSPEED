@@ -101,6 +101,7 @@ function startTestLoop() {
         
         if (time >= countdownValue * 1000) {
             deleteAllTargets();
+            timerElement.innerHTML = countdownValue + ".00"
             startGameButton.style.display = "flex";
             isGameStarted = false;
             clearInterval(timer);
