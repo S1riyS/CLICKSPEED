@@ -1,6 +1,6 @@
 # CLICKSPEED.RU
 ## About project
-CLICKSPEED.RU - it`s a website where you can check how fast you do something with the mouse.
+SPEEDCLICK it`s a website where you can test your reaction and check how fast you aim and click with the mouse.
 
 ## Moduels
 * **[Flask](https://flask.palletsprojects.com/en/master/)** - A framework for creating web applications using Python
