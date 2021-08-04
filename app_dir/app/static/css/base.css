@@ -207,6 +207,10 @@ body::-webkit-scrollbar-thumb {
 
 /*  Media  */
 @media (max-width: 770px) {
+    .block {
+        padding: 15px 10px;
+    }
+    
     .header .header__logo .img {
         margin-right: 10px;
     }

@@ -90,10 +90,6 @@
 }
 
 @media (max-width: 767px) {
-    .block {
-        padding: 15px 10px !important;
-    }
-
     .info .item .value {
         font-size: 18px;
     }

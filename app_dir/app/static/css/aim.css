@@ -115,7 +115,6 @@
     .game-area__wrapper:after {
         content: "The game doesn't works on small screens";
         font-size: 24px;
-        margin-top: 32px;
         color: red;
         text-align: center;
     }
