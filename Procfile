@@ -1,1 +1,1 @@
-web: gunicorn /app_dir/app:app
+web: python app_dir/app.py
