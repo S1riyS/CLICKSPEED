@@ -35,8 +35,11 @@ $(function () {
     $(window).on('load resize', function () {
         if ($(window).width() < 1201) {
             clickArea.classList.remove('ripple');
+            clickArea.onclick = undefined;
         } else {
             clickArea.classList.add('ripple');
+            clickArea.onclick = clickOnButton;
+
         }
     })
 })
