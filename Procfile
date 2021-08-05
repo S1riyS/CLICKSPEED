@@ -1,1 +1,1 @@
-web: gunicorn app_dir.runner:app
+web: gunicorn app:app
