@@ -1,5 +1,7 @@
-from . import app
 from flask import render_template, request
+
+from . import app, db
+from .data.models import *
 
 @app.route('/', methods=['GET'])
 def home_page():
