@@ -36,10 +36,13 @@ a:hover {
 
 button,
 button:active,
-button:focus {
-    outline: none !important;
+button:focus,
+input,
+input:active,
+input:focus{
+    outline: none;
     border: none;
-    box-shadow: none !important;
+    box-shadow: none;
 }
 
 /*  Scrollbar  */

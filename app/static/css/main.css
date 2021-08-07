@@ -64,6 +64,9 @@
     .container-fluid {
         width: 90% !important;
     }
+    .test-card {
+        width: 45%;
+    }
 }
 
 @media (max-width: 770px) {
