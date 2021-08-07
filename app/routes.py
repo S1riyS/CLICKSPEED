@@ -1,11 +1,9 @@
-from flask import render_template, request
+from flask import render_template, request, flash, redirect, session
+from flask_login import current_user
 
 from . import app, db
 from .data.models import *
-
-@app.route('/', methods=['GET'])
-def home_page():
-    return render_template('main.html')
+from .forms.user import RegisterForm, LoginForm
 
 
 def check_test_time(test_time: str) -> bool:
@@ -13,6 +11,11 @@ def check_test_time(test_time: str) -> bool:
     if test_time in acceptable_values:
         return True
     return False
+
+
+@app.route('/', methods=['GET'])
+def home_page():
+    return render_template('main.html')
 
 
 @app.route('/cps', methods=['GET'])
@@ -39,6 +42,27 @@ def aim_test_page():
 def reaction_test_page():
     return render_template('/reaction_test.html')
 
+
+@app.route('/registration', methods=['GET', 'POST'])
+def registration_page():
+    session.pop('_flashes', None)
+    form = RegisterForm()
+    if form.validate_on_submit():
+        if db.session.query(User).filter(User.email == form.email.data).first():
+            flash("Такой пользователь уже есть")
+            return render_template('register.html', form=form)
+        if form.password.data != form.password_again.data:
+            flash("Пароли не совпадают")
+            return render_template('register.html', form=form)
+        user = User(
+            nickname=form.nickname.data,
+            email=form.email.data,
+        )
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Регистрация', form=form, user=current_user)
 
 ########## ОБРАБОТЧИК ОШИБКИ 404 ##########
 @app.errorhandler(404)
