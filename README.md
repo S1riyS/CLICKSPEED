@@ -6,10 +6,10 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
 # CLICKSPEED.RU
-## About project
+## 📝 About project
 SPEEDCLICK it`s a website where you can test your reaction and check how fast you aim and click with the mouse.
 
-## Moduels
+## 💻 Moduels
 * **[Flask](https://flask.palletsprojects.com/en/master/)** - A framework for creating web applications using Python
 * **[Flask-Login](https://flask-login.readthedocs.io/en/latest/)** - Provides user session management for Flask 
 * **[Flask-Moment](https://github.com/miguelgrinberg/Flask-Moment)** - This extension enhances Jinja2 templates with 
@@ -19,7 +19,7 @@ that gives application developers the full power and flexibility of SQL
 * **[Werkzeug](https://github.com/pallets/werkzeug)** - WSGI Library
 * **[Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/)** - Library for working with forms
 
-## Download
+## ⬇ Download
 To get started, you need to install [Python 3.8](https://www.python.org/downloads/release/python-380/).
 
 Then, to install all the necessary modules, you need to write the following command in the console:
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ```
 Now you can start `app.py` file.
 
-## Preview
+## 🎞 Preview
 ### Home page
 ![alt Home page](https://skrinshoter.ru/i/080821/ozX0Cf60.png?download=1&name=Скриншот%2008-08-2021%2014:25:31.png)
 ### CPS Test page
