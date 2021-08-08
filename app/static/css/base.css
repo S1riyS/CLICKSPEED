@@ -2,7 +2,7 @@
 body {
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
-    background: #181818;
+    background: #0F111A;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -66,7 +66,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .block {
-    background: #252525;
+    background: #181A1F;
     padding: 15px 20px;
     border-radius: 5px;
     text-align: center;
@@ -81,8 +81,8 @@ body::-webkit-scrollbar-thumb {
 .header {
     padding: 10px 0;
     margin-bottom: 20px;
-    background: rgb(37, 37, 37);
-    background: linear-gradient(15deg, rgba(37, 37, 37, 1) 0%, rgba(48, 48, 48, 1) 100%);
+    background: #1A1C25;
+/*    background: linear-gradient(15deg, rgba(37, 37, 37, 1) 0%, rgba(48, 48, 48, 1) 100%);*/
 }
 
 .header .row {
@@ -115,15 +115,14 @@ body::-webkit-scrollbar-thumb {
 
 .header .header__nav .navigation .item {
     font-size: 20px;
-    transition: .3s ease;
+    transition: .2s ease;
     display: inline-block;
     margin: 0 15px;
     color: #ffffff;
 }
 
 .header .header__nav .navigation .item:hover {
-    color: #2ecc71;
-    transform: scale(1.05);
+    color: #84ffff;
 }
 
 .main {
@@ -133,6 +132,8 @@ body::-webkit-scrollbar-thumb {
 /*  Dropdown menu */
 .dropdown-toggle {
     border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
     padding: 0;
 }
 
@@ -140,6 +141,9 @@ body::-webkit-scrollbar-thumb {
     vertical-align: middle;
 }
 
+.dropdown-toggle:focus {
+    border: none !important;
+}
 .dropdown-menu {
     text-align: center;
     border-radius: 3px;
@@ -156,18 +160,18 @@ body::-webkit-scrollbar-thumb {
 
 .dropdown-menu .dropdown-item:hover {
     padding: 1.10rem 1.5rem;
-    background: linear-gradient(15deg, #1D976C, #93F9B9);
+    background: linear-gradient(15deg, #0F7ED3, #72B5E9);
 }
 
 .dropdown-menu .dropdown-item:focus {
-    background: linear-gradient(15deg, #1D976C, #93F9B9);
+    background: linear-gradient(15deg, #0F7ED3, #72B5E9);
 }
 
 /*  Footer  */
 .footer {
     width: 100%;
     padding: 15px;
-    background-color: #151515;
+    background-color: #090B10;
     color: #757575;
     text-align: center;
     flex-shrink: 0;

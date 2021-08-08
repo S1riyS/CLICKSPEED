@@ -53,7 +53,7 @@
     font-size: 20px;
     border: 2px solid #fff;
     border-radius: 10px;
-    background: #121212;
+    background: #090B10;
     color: #fff;
     cursor: pointer;
     z-index: 10;
@@ -70,15 +70,15 @@
 }
 
 .main__links .links .link {
-    transition: background .3s ease;
+    transition: background .2s ease;
     padding: 12px 38px;
-    background: #101010;
+    background: #090B10;
     margin-bottom: 10px;
     border-radius: 5px;
 }
 
 .main__links .links .link:hover {
-    background: #DA4453;
+    background: #ff5370;
 }
 
 
