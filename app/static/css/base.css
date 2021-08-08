@@ -39,7 +39,7 @@ button:active,
 button:focus,
 input,
 input:active,
-input:focus{
+input:focus {
     outline: none;
     border: none;
     box-shadow: none;
@@ -70,6 +70,7 @@ body::-webkit-scrollbar-thumb {
     padding: 15px 20px;
     border-radius: 5px;
     text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .title {
@@ -82,7 +83,7 @@ body::-webkit-scrollbar-thumb {
     padding: 10px 0;
     margin-bottom: 20px;
     background: #1A1C25;
-/*    background: linear-gradient(15deg, rgba(37, 37, 37, 1) 0%, rgba(48, 48, 48, 1) 100%);*/
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .header .row {
@@ -144,6 +145,7 @@ body::-webkit-scrollbar-thumb {
 .dropdown-toggle:focus {
     border: none !important;
 }
+
 .dropdown-menu {
     text-align: center;
     border-radius: 3px;
@@ -217,7 +219,7 @@ body::-webkit-scrollbar-thumb {
     .block {
         padding: 15px 10px;
     }
-    
+
     .header .header__logo .img {
         margin-right: 10px;
     }
