@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cps.css') }}">
-    <title>{{ WEBSITE_URL }} - CPS Test ({{ test_time }} second test)</title>
+    <title>{{ WEBSITE_URL }} - CPS Test ({{ test_time }} second)</title>
 </head>
 
 {% extends "base.html" %}
@@ -11,15 +11,15 @@
         <div class="main__test block col-xl-8 col-md-12">
             <h2 class="title">{{ test_time }} seconds test</h2>
             <div class="info">
-                <div class="item item1">
+                <div class="item box-shadow item1">
                     <p id="timer" class="value">{{ test_time }}.00</p>
                     <p>Timer</p>
                 </div>
-                <div class="item item2">
+                <div class="item box-shadow item2">
                     <p id="cps" class="value">0.00</p>
                     <p>Click/s</p>
                 </div>
-                <div class="item item3">
+                <div class="item box-shadow item3">
                     <p id="counter" class="value">0</p>
                     <p>Score</p>
                 </div>

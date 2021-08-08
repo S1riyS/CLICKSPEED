@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/aim.css') }}">
-    <title>{{ WEBSITE_URL }} - Aim Test - ({{ test_time }} second test)</title>
+    <title>{{ WEBSITE_URL }} - Aim Test - ({{ test_time }} second)</title>
 </head>
 
 {% extends "base.html" %}
@@ -12,15 +12,15 @@
         <div class="main__test block col-lg-10 offset-lg-1 col-12">
             <h2 class="title">{{ test_time }} seconds test</h2>
             <div class="info">
-                <div class="item item1">
+                <div class="item box-shadow item1">
                     <p id="timer" class="value">{{ test_time }}.00</p>
                     <p>Timer</p>
                 </div>
-                <div class="item item2">
+                <div class="item box-shadow item2">
                     <p id="targetPerSecond" class="value">0.00</p>
                     <p>Targets/s</p>
                 </div>
-                <div class="item item3">
+                <div class="item box-shadow item3">
                     <p id="score" class="value">0</p>
                     <p>Score</p>
                 </div>
@@ -28,7 +28,7 @@
             <div class="game-area__wrapper">
                 <audio id="click-sound" src="{{ url_for('static', filename='sounds/click.mp3') }}" crossOrigin="anonymous"></audio>
                 <div class="game-area" id="game-area">
-                    <button class="game__start-btn"><span>Click here to start playing</span></button>
+                    <button id="start-btn" class="start-btn">Click here to start playing</button>
                 </div>
             </div>
         </div>
