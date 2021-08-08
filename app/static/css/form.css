@@ -1,0 +1,81 @@
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 150px #1F2233 inset;
+    /* можно изменить на любой вариант цвета */
+    -webkit-text-fill-color: #fff;
+}
+
+.form-wrapper {
+    padding: 0 !important;
+    background-color: #181A1F;
+    border-radius: 0.5rem;
+}
+
+.form {
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: #1F2233;
+    text-align: center;
+    margin: 0;
+}
+
+.form__title {
+    margin-bottom: 2rem;
+}
+
+.form__group {
+    position: relative;
+    height: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.form__input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #89ddff;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    outline: none;
+    padding: 1.4rem;
+    background: none;
+}
+
+.form__input:hover {
+    border-color: #ffcb6b !important;
+}
+
+.form__input:focus {
+    border-color: 2px solid #ffcb6b !important;
+}
+
+.form__label {
+    position: absolute;
+    left: 0.8rem;
+    top: 0.8rem;
+    padding: 0 0.5rem;
+    background-color: #1F2233;
+    color: #cfd8dcbf;
+    transition: all 150ms ease-in
+}
+
+.submit-btn {
+    margin-bottom: 15px;
+}
+
+.form-text {
+    color: #eeffff;
+    font-size: 16px;
+}
+
+.form-text-link {
+    color: #c3e88d
+}
+
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
+    top: -0.5rem;
+    left: 0.8rem;
+    font-size: 0.8rem;
+}

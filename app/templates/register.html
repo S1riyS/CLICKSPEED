@@ -1,6 +1,6 @@
 <head>
     <title>{{ WEBSITE_URL }} - Sing Up</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
 </head>
 
 {% extends "base.html" %}
@@ -8,21 +8,42 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="form-block col-xl-6 offset-xl-3 offset-lg-1 col-lg-10 col-12">
-            <h1 class="form-title">Sing Up</h1>
-            <form action="" method="post">
+        <div class="form-wrapper box-shadow col-xl-4 offset-xl-4 offset-lg-1 col-lg-10 col-12">
+            <form action="" method="post" class="form">
                 {{ form.hidden_tag() }}
-                {{ form.nickname(type="text", placeholder=form.nickname.label.text) }}
-                {{ form.email(type="text", placeholder=form.email.label.text) }}
-                {{ form.password(type="password", placeholder=form.password.label.text) }}
-                {{ form.password_again(type="password", placeholder=form.password_again.label.text) }}
-                {{ form.submit(type="submit") }}
+                <h1 class="form__title">Sign Up</h1>
+                
+                <div class="form__group">
+                    {{ form.nickname(type="text", id="nickname", class="form__input", placeholder=" ", autocomplete="false") }}
+                    <label for="nickname" class="form__label">Nickname</label>
+                </div>
+                <div class="form__group">
+                    {{ form.email(type="text", id="email", class="form__input", placeholder=" ", autocomplete="false") }}
+                    <label for="email" class="form__label">Email</label>
+                </div>
+                <div class="form__group">
+                {{ form.password(type="password", id="password", class="form__input", placeholder=" ") }}
+                    <label for="password" class="form__label">Password</label>
+                    </div>
+                <div class="form__group">
+                    {{ form.password_again(type="password", id="password_again", class="form__input", placeholder=" ") }}
+                    <label for="password_again" class="form__label">Password again</label>
+                </div>
+                
+                {{ form.submit(type="submit", class="gradient-btn submit-btn") }}
+                
+                <p class="form-text">Already have an account? 
+                    <a class="form-text-link" href="{{ url_for('home_page') }}">
+                         Log in!
+                    </a>
+                </p>
+
                 {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                {% for message in messages %}
-                {{ message }}
-                {% endfor %}
-                {% endif %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    {% endif %}
                 {% endwith %}
             </form>
         </div>
