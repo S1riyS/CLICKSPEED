@@ -12,7 +12,7 @@ let isGameStarted = false,
 
 
 const gameSurface = document.getElementById("game-area"),
-    startGameButton = document.getElementsByClassName("game__start-btn")[0],
+    startGameButton = document.getElementById("start-btn"),
     timerElement = document.getElementById('timer'),
     targetPerSecondElement = document.getElementById('targetPerSecond'),
     scoreElement = document.getElementById('score');
