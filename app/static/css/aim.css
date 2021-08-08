@@ -1,21 +1,3 @@
-/* Button */
-.start-btn {
-    padding: 12px 18px;
-    font-size: 19px;
-    font-weight: 400;
-    border-radius: 5px;
-    background: linear-gradient(15deg, #717CB4, #82aaff);
-    background-size: 200% auto;
-    color: #fff;
-    transition: 0.3s;
-    box-shadow: 0px 0px 25px 0px rgba(130, 170, 255, 0.5);
-    cursor: inherit !important;
-}
-
-.start-btn:hover {
-     background-position: right center;
-}
-
 /* Main */
 .main__test {
     width: 60%;
@@ -67,6 +49,10 @@
     border-radius: 10px;
     border: 2px solid #fff;
     cursor: url(/static/images/crosshairs/scope.png) 19 19, auto;
+}
+
+.gradient-btn {
+    cursor: inherit !important;
 }
 
 /*  Target  */
