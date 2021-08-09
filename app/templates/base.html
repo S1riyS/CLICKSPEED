@@ -19,6 +19,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="module" src="{{ url_for('static', filename='js/utility/burger_menu.js')
+     }}"></script>
     {% block scripts %}
     {% endblock %}
 </head>
@@ -28,11 +30,22 @@
     <header class="header box-shadow">
         <div class="container-fluid">
             <div class="row">
-                <a href="{{ url_for('home_page') }}" class="header__logo col-xl-4 col-lg-5 col-md-12 col-xs-12">
+                <a href="{{ url_for('home_page') }}" class="header__logo col-xl-4 col-lg-5 col-md-8 col-xs-8">
                     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="img">
                     <h2 class="name">{{ WEBSITE_URL }}</h2>
                 </a>
-                <div class="header__nav col-xl-8 col-lg-7 col-md-12 col-xs-12">
+
+                <div class="menu-btn-wrapper col-md-2 col-xs-2">
+                    <button class="menu-btn" id="menu-btn" aria-label="Main Menu">
+                        <svg width="40" height="40" viewBox="0 0 100 100">
+                            <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                            <path class="line line2" d="M 20,50 H 80" />
+                            <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="header__nav" class="header__nav col-xl-8">
                     <nav class="navigation">
                         <button type="button" class="item btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gamepad" aria-hidden="true"></i> Games</button>
                         <div class="dropdown-menu">
@@ -42,6 +55,10 @@
                         </div>
                         <a class="item" href="https://vk.com/s1riys"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
                         <a class="item" href="https://github.com/S1riyS/CLICKSPEED.RU"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+                        <div class="auth">
+                            <a href="#" id="login-btn" class="auth-item gradient-btn">Login</a>
+                            <a href="{{ url_for('sing_up_page') }}" id="singup-btn" class="auth-item gradient-btn">Sing Up</a>
+                        </div>
                     </nav>
                 </div>
             </div>
