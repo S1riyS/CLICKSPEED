@@ -1,11 +1,12 @@
 let navigation,
-    header
+    header = $('#header');
 
 function setAtributes() {
     navigation = $('#header__nav');
-    console.log(navigation)
+    console.log(header.height());
+    console.log(navigation);
     if (window.screen.width < 1201) {
-        let header = $('header');
+        let header = $('#header');
         navigation.css('top', header.outerHeight() + "px");
         navigation.addClass('box-shadow');
     } else {
