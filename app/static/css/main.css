@@ -1,5 +1,5 @@
-.container-fluid {
-    width: 65% !important;
+.header .container-fluid {
+    width: 80%;
 }
 
 .tests-list {
