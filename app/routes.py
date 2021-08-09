@@ -43,16 +43,15 @@ def reaction_test_page():
     return render_template('/reaction_test.html')
 
 
-@app.route('/registration', methods=['GET', 'POST'])
-def registration_page():
-    session.pop('_flashes', None)
+@app.route('/signup', methods=['GET', 'POST'])
+def sing_up_page():
     form = RegisterForm()
     if form.validate_on_submit():
         if db.session.query(User).filter(User.email == form.email.data).first():
-            flash("Такой пользователь уже есть")
+            flash("There is already a user which is signed in.")
             return render_template('register.html', form=form)
         if form.password.data != form.password_again.data:
-            flash("Пароли не совпадают")
+            flash("Passwords don't match")
             return render_template('register.html', form=form)
         user = User(
             nickname=form.nickname.data,
@@ -62,7 +61,7 @@ def registration_page():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('login'))
-    return render_template('register.html', title='Регистрация', form=form, user=current_user)
+    return render_template('register.html', form=form)
 
 ########## ОБРАБОТЧИК ОШИБКИ 404 ##########
 @app.errorhandler(404)
