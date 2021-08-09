@@ -17,22 +17,27 @@
                     {{ form.nickname(type="text", id="nickname", class="form__input", placeholder=" ", autocomplete="false") }}
                     <label for="nickname" class="form__label">Nickname</label>
                 </div>
+                
                 <div class="form__group">
                     {{ form.email(type="text", id="email", class="form__input", placeholder=" ", autocomplete="false") }}
                     <label for="email" class="form__label">Email</label>
                 </div>
+                
                 <div class="form__group">
                 {{ form.password(type="password", id="password", class="form__input", placeholder=" ") }}
                     <label for="password" class="form__label">Password</label>
-                    </div>
+                    <a class="password-control"></a>
+                </div>
+                
                 <div class="form__group">
                     {{ form.password_again(type="password", id="password_again", class="form__input", placeholder=" ") }}
                     <label for="password_again" class="form__label">Password again</label>
+                    <a class="password-control"></a>
                 </div>
                 
                 {{ form.submit(type="submit", class="gradient-btn submit-btn") }}
                 
-                <p class="form-text">Already have an account? 
+                <p class="form-text">Already have an account ? 
                     <a class="form-text-link" href="{{ url_for('home_page') }}">
                          Log in!
                     </a>
@@ -41,7 +46,7 @@
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
-                            {{ message }}
+                            <p class="form-error">{{ message }}</p>
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
@@ -52,4 +57,5 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="{{ url_for('static', filename='js/form.js') }}"></script>
 {% endblock %}
