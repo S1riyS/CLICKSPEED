@@ -5,6 +5,15 @@ input:-webkit-autofill:focus {
     -webkit-text-fill-color: #fff;
 }
 
+.main {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+}
+
 .form-wrapper {
     padding: 0 !important;
     background-color: #181A1F;
@@ -60,6 +69,32 @@ input:-webkit-autofill:focus {
     transition: all 150ms ease-in
 }
 
+.form__input[type="password"] {
+    position: relative;
+}
+
+.password-control {
+    border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.8rem;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(/static/images/svg/view.svg) 0 0 no-repeat;
+    color: #fff
+}
+
+.password-control:hover,
+.password-control.view:hover {
+    background-color: #eeffff33
+}
+
+.password-control.view {
+    background: url(/static/images/svg/no-view.svg) 0 0 no-repeat;
+}
+
 .submit-btn {
     margin-bottom: 15px;
 }
@@ -67,10 +102,19 @@ input:-webkit-autofill:focus {
 .form-text {
     color: #eeffff;
     font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .form-text-link {
-    color: #c3e88d
+    color: #c3e88d;
+    transition: 0.2s;
+}
+.form-text-link:hover {
+    color: #a9dc76;
+}
+
+.form-error {
+    color: #ff5370;
 }
 
 .form__input:focus ~ .form__label,
