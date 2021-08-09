@@ -1,6 +1,9 @@
 .header .container-fluid {
     width: 80%;
 }
+.main .container-fluid {
+    width: 65%;
+}
 
 .tests-list {
     min-width: 100%;

@@ -335,6 +335,7 @@ body::-webkit-scrollbar-thumb {
         left: 0;
         padding: 25;
         opacity: 0;
+        display: none;
     }
 
     .header .header__nav .navigation {

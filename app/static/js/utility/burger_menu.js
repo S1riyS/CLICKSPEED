@@ -14,7 +14,8 @@ function setAtributes() {
     }
 }
 
-setAtributes()
+setAtributes();
+
 $(function () {
     $(window).resize(function () {
         setAtributes();
@@ -26,8 +27,8 @@ $(document).on('click', '#menu-btn', function () {
     $(this).attr('aria-expanded', this.classList.contains('opened'));
     console.log(navigation)
     if ($(this).hasClass('opened')) {
-        navigation.css('opacity', 1);
+        navigation.css({'opacity': 1, 'display': 'block'});
     } else {
-        navigation.css('opacity', 0);
+        navigation.css({'opacity': 0, 'display': 'none'});
     }
 })
