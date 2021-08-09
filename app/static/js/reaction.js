@@ -41,7 +41,6 @@ function clearTimeoutList() {
 }
 
 $("#test-area").mousedown(() => {
-    console.log(timeoutList);
     switch (testArea.dataset.state) {
         case "splash":
             testArea.dataset.state = "waiting";
