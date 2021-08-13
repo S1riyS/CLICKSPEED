@@ -1,0 +1,50 @@
+<head>
+    <title>{{ WEBSITE_URL }} - Log In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+</head>
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="form-wrapper box-shadow col-xl-4 offset-xl-4 offset-lg-1 col-lg-10 col-12">
+            <form action="" method="post" class="form">
+                {{ form.hidden_tag() }}
+                <h1 class="form__title">Log In</h1>
+                
+                <div class="form__group">
+                    {{ form.email(type="text", id="email", class="form__input", placeholder=" ", autocomplete="false") }}
+                    <label for="email" class="form__label">Email</label>
+                </div>
+                
+                <div class="form__group">
+                {{ form.password(type="password", id="password", class="form__input", placeholder=" ") }}
+                    <label for="password" class="form__label">Password</label>
+                    <a class="password-control"></a>
+                </div>
+                
+                {{ form.submit(type="submit", class="gradient-btn submit-btn") }}
+                
+                <p class="form-text">Need an account? 
+                    <a class="form-text-link" href="{{ url_for('sing_up_page') }}">
+                         Sign Up! 
+                    </a>
+                </p>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="form-error">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/form.js') }}"></script>
+{% endblock %}

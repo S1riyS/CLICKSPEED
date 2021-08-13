@@ -1,5 +1,5 @@
-from flask import render_template, request, flash, redirect, session
-from flask_login import current_user
+from flask import render_template, request, flash, redirect, url_for, session
+from flask_login import current_user, login_user, login_required, logout_user
 
 from . import app, db
 from .data.models import *
@@ -60,8 +60,36 @@ def sing_up_page():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('login'))
+        return redirect(url_for('login_page'))
     return render_template('register.html', form=form)
+
+
+@login_manager.unauthorized_handler
+def unauthorized_callback():
+    return redirect(url_for('login_page'))
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login_page():
+    form = LoginForm()
+    if form.validate_on_submit():
+        email = form.email.data
+        password = form.password.data
+        if email and password:
+            user = db.session.query(User).filter(User.email == form.email.data).first()
+            print(user)
+            if not user:
+                flash('Wrong login or password!')
+                return render_template('login.html', form=form)
+            elif user.check_password(password):
+                login_user(user)
+                print(current_user.nickname)
+                return redirect(url_for('home_page'))
+            else:
+                flash('Wrong login or password!')
+                return render_template('login.html', form=form)
+
+    return render_template('login.html', form=form)
 
 ########## ОБРАБОТЧИК ОШИБКИ 404 ##########
 @app.errorhandler(404)
