@@ -65,6 +65,11 @@ body::-webkit-scrollbar-thumb {
     /* padding вокруг плашки */
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .block {
     background: #181A1F;
     padding: 15px 20px;
@@ -135,8 +140,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header .header__nav {
-    transition: 0.3s ease;
+    transition: 0.4s ease;
     opacity: 1;
+    display: flex;
+    margin-right: 30;
 }
 
 .header .header__nav .navigation {
@@ -205,11 +212,11 @@ body::-webkit-scrollbar-thumb {
     background: linear-gradient(15deg, #0F7ED3, #72B5E9);
 }
 
-.header .header__nav .navigation .profile {
+.header .header__nav .profile {
     margin-left: 15px;
 }
 
-.header .header__nav .navigation .profile .profile-item {
+.header .header__nav .profile .profile-item {
     padding: 5px 16px;
     margin-right: 5px;
     cursor: pointer;
@@ -225,6 +232,22 @@ body::-webkit-scrollbar-thumb {
 
 #singup-btn:hover {
     background-position: right center;
+}
+
+#logout-btn {
+    background: linear-gradient(15deg, #f07178 0%,
+            #ff5370 100%);
+    background-size: 200% auto;
+    box-shadow: 0px 0px 15px 0px #ff5370;
+}
+
+#logout-btn:hover {
+    background-position: right center;
+}
+
+#profile-btn {
+    font-size: 22px;
+    padding: 5px;
 }
 
 /*  Footer  */
@@ -335,10 +358,12 @@ body::-webkit-scrollbar-thumb {
         background: #090B10;
         left: 0;
         padding: 25;
+        margin: 0;
         opacity: 1;
         overflow: hidden;
         height: 0px;
         padding: 0px;
+        flex-direction: column;
     }
 
     .header .header__nav .navigation {
@@ -347,12 +372,28 @@ body::-webkit-scrollbar-thumb {
     }
 
     .header .header__nav .navigation .item {
-        font-size: 18px;
+        font-size: 20px;
         margin-bottom: 20px;
     }
 
     .header .header__nav .navigation .auth {
         margin-left: 0;
+    }
+
+    .header .header__nav .profile {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+    .header .header__nav .profile .profile-item {
+        margin: 0;
+        margin-bottom: 15px;
+        font-size: 22px;
     }
 }
 
