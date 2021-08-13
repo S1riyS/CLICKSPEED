@@ -12,12 +12,12 @@ def check_test_time(test_time: str) -> bool:
         return True
     return False
 
-
+# Home page
 @app.route('/', methods=['GET'])
 def home_page():
     return render_template('main.html')
 
-
+# Click per second test page
 @app.route('/cps', methods=['GET'])
 def cps_test_page():
     test_time = request.args.get('test_time', type=int)
@@ -27,7 +27,7 @@ def cps_test_page():
     else:
         return render_template('404.html')
 
-
+# Aim test page
 @app.route('/aim', methods=['GET'])
 def aim_test_page():
     test_time = request.args.get('test_time', type=int)
@@ -37,12 +37,12 @@ def aim_test_page():
     else:
         return render_template('404.html')
 
-
+# Reaction time test page
 @app.route('/reactiontime', methods=['GET'])
 def reaction_test_page():
     return render_template('/reaction_test.html')
 
-
+# Registration page
 @app.route('/signup', methods=['GET', 'POST'])
 def sing_up_page():
     form = RegisterForm()
@@ -63,12 +63,12 @@ def sing_up_page():
         return redirect(url_for('login_page'))
     return render_template('register.html', form=form)
 
-
+# Unauthorized handler
 @login_manager.unauthorized_handler
 def unauthorized_callback():
     return redirect(url_for('login_page'))
 
-
+# Login page
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
     form = LoginForm()
@@ -91,7 +91,15 @@ def login_page():
 
     return render_template('login.html', form=form)
 
-########## ОБРАБОТЧИК ОШИБКИ 404 ##########
+# Logout page
+@app.route('/logout', methods=['GET', 'POST'])
+@login_required
+def logout_page():
+    logout_user()
+    return redirect(url_for('home_page'))
+
+
+# 404 error handler
 @app.errorhandler(404)
 def error_404_page(error):
     return render_template('404.html')
