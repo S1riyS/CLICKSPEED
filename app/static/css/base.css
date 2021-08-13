@@ -205,14 +205,15 @@ body::-webkit-scrollbar-thumb {
     background: linear-gradient(15deg, #0F7ED3, #72B5E9);
 }
 
-.header .header__nav .navigation .auth {
+.header .header__nav .navigation .profile {
     margin-left: 15px;
 }
 
-.header .header__nav .navigation .auth .auth-item {
-    padding: 6px 18px;
+.header .header__nav .navigation .profile .profile-item {
+    padding: 5px 16px;
     margin-right: 5px;
     cursor: pointer;
+    font-size: 18;
 }
 
 #singup-btn {
@@ -334,8 +335,10 @@ body::-webkit-scrollbar-thumb {
         background: #090B10;
         left: 0;
         padding: 25;
-        opacity: 0;
-        display: none;
+        opacity: 1;
+        overflow: hidden;
+        height: 0px;
+        padding: 0px;
     }
 
     .header .header__nav .navigation {

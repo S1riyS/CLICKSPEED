@@ -3,11 +3,8 @@ let navigation,
 
 function setAtributes() {
     navigation = $('#header__nav');
-    console.log(header.height());
-    console.log(navigation);
     if (window.screen.width < 1201) {
         let header = $('#header');
-        navigation.css('top', header.outerHeight() + "px");
         navigation.addClass('box-shadow');
     } else {
         navigation.removeAttr('style');
@@ -26,10 +23,16 @@ $(function () {
 $(document).on('click', '#menu-btn', function () {
     $(this).toggleClass('opened');
     $(this).attr('aria-expanded', this.classList.contains('opened'));
-    console.log(navigation)
+    navigation.css('top', header.outerHeight() + "px");
     if ($(this).hasClass('opened')) {
-        navigation.css({'opacity': 1, 'display': 'block'});
+        navigation.css({
+            'height': '100%',
+            'padding': '20px'
+        });
     } else {
-        navigation.css({'opacity': 0, 'display': 'none'});
+        navigation.css({
+            'height': '0',
+            'padding': '0px'
+        });
     }
 })
