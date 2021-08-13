@@ -55,9 +55,16 @@
                         </div>
                         <a class="item" href="https://vk.com/s1riys"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
                         <a class="item" href="https://github.com/S1riyS/CLICKSPEED.RU"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
-                        <div class="auth">
-                            <a href="#" id="login-btn" class="auth-item gradient-btn">Login</a>
-                            <a href="{{ url_for('sing_up_page') }}" id="singup-btn" class="auth-item gradient-btn">Sing Up</a>
+                        <div class="profile">
+                            {% if current_user %}
+                                {% if current_user.is_authenticated %}
+                                    <a href="{{ url_for('login_page') }}" class="profile-item gradient-btn">Profile</a>
+                                    <a href="{{ url_for('sing_up_page') }}" class="profile-item gradient-btn">Logout</a>
+                                {% else %}
+                                    <a href="{{ url_for('login_page') }}" id="login-btn" class="profile-item gradient-btn">Login</a>
+                                    <a href="{{ url_for('sing_up_page') }}" id="singup-btn" class="profile-item gradient-btn">Sing Up</a>
+                                {% endif %}
+                            {% endif %}
                         </div>
                     </nav>
                 </div>
