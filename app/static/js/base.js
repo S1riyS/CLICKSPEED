@@ -25,11 +25,13 @@ $(document).on('click', '#menu-btn', function () {
     $(this).attr('aria-expanded', this.classList.contains('opened'));
     navigation.css('top', header.outerHeight() + "px");
     if ($(this).hasClass('opened')) {
+        $('body').addClass('stop-scrolling');
         navigation.css({
             'height': '100%',
             'padding': '20px'
         });
     } else {
+        $('body').removeClass('stop-scrolling');
         navigation.css({
             'height': '0',
             'padding': '0px'
