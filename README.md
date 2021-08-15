@@ -22,9 +22,9 @@ formatting of dates and times using moment.js
 * **[SQLAlchemy](https://docs.sqlalchemy.org/en/13/)** - SQLAlchemy is the Python SQL toolkit and Object Relational Mapper 
 that gives application developers the full power and flexibility of SQL
 * **[Werkzeug](https://github.com/pallets/werkzeug)** - WSGI Library
-* **[Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/)** - Library for working with forms
+* **[Flask-WTF](https://flask-wtf.readthedocs.io/en/v0.8.3/)** - Library for working with forms
 
-## ⬇ Download
+## ⬇ Install
 To get started, you need to install [Python 3.8](https://www.python.org/downloads/release/python-380/).
 
 Then, to install all the necessary modules, you need to write the following command in the console:
@@ -34,13 +34,5 @@ pip install -r requirements.txt
 Now you can start `app.py` file.
 
 ## 🎞 Preview
-### Home page
-![alt Home page](https://skrinshoter.ru/i/080821/ozX0Cf60.png?download=1&name=Скриншот%2008-08-2021%2014:25:31.png)
-### CPS Test page
-![alt CPS Test page](https://skrinshoter.ru/i/080821/vfYmpRxd.png?download=1&name=Скриншот%2008-08-2021%2014:26:34.png)
-### Aim Test page
-![alt Aim Test page](https://skrinshoter.ru/i/080821/ky1zIBQJ.png?download=1&name=Скриншот%2008-08-2021%2014:44:00.png)
-### Reaction Test page
-![alt Reaction Test page](https://skrinshoter.ru/i/080821/nlgudGws.png?download=1&name=Скриншот%2008-08-2021%2014:44:32.png)
-### 404 Error page
-![alt 404 Error page](https://skrinshoter.ru/i/080821/Ow2JB2h6.png?download=1&name=Скриншот%2008-08-2021%2014:46:00.png)
+![alt Home page](https://downloader.disk.yandex.ru/preview/2385fb818a1b2b21811b8df89b4eeee3792ba58d9b8ca8b757f92a836136fb55/6118f376/xYkacmp1j6Vwju6aBATLBF0qQrWAk6ct324iDIvgUIvtI3S1HfKO5FFu1UNXgV2UppyljchnRJLRISWUoNxQsg%3D%3D?uid=0&filename=Web-Showcase-Project-Presentation.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048)
+
