@@ -1,0 +1,17 @@
+.block {
+    background: #1F2233 !important;
+}
+
+.username-block {
+    margin-bottom: 0.8rem;
+}
+
+.username-block .label,
+.joined-block .label {
+    color: #bcc2d5;
+    font-size: 16px;
+}
+
+.joined-block .value {
+    font-size: 18px;
+}

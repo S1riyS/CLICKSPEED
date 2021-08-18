@@ -1,0 +1,27 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <title>{{ WEBSITE_URL }} - {{ user.nickname }}</title>
+</head>
+
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="user block col-lg-8 offset-lg-2 col-md-12">
+            <div class="username-block">
+                <p class="label">Username</p>
+                <h1 class="value">{{ user.nickname }}</h1>
+            </div>
+            <div class="joined-block">
+                <p class="label">Joined</p>
+                <p class="value">{{ moment(user.registration_date).fromNow(refresh=True) }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
