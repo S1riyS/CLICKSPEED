@@ -1,46 +1,44 @@
 from flask import render_template, request, flash, redirect, url_for, session
 from flask_login import current_user, login_user, login_required, logout_user
 
-from . import app, db
+from . import app, db, moment
 from .data.models import *
 from .forms.user import RegisterForm, LoginForm
 
 
-def check_test_time(test_time: str) -> bool:
+def check_test_time(test_time) -> bool:
     acceptable_values = {1, 2, 5, 10, 15, 30, 60, 100}
-    if test_time in acceptable_values:
-        return True
+    if test_time:
+        if test_time in acceptable_values:
+            return True
     return False
+
 
 # Home page
 @app.route('/', methods=['GET'])
 def home_page():
     return render_template('main.html')
 
-# Click per second test page
-@app.route('/cps', methods=['GET'])
-def cps_test_page():
-    test_time = request.args.get('test_time', type=int)
+
+@app.route('/tests/<string:test_name>', methods=['GET', 'POST'])
+def test_page(test_name):
+    test_time = request.args.get('test_time', type=int, default=10)
+
+    if not test_time:
+        return render_template(f'{test_name}_test.html')
 
     if check_test_time(test_time):
-        return render_template('cps_test.html', test_time=test_time)
+        return render_template(f'{test_name}.html', test_time=test_time)
     else:
         return render_template('404.html')
 
-# Aim test page
-@app.route('/aim', methods=['GET'])
-def aim_test_page():
-    test_time = request.args.get('test_time', type=int)
 
-    if check_test_time(test_time):
-        return render_template('aim_test.html', test_time=test_time)
-    else:
-        return render_template('404.html')
+# Profile page
+@app.route('/profile', methods=['GET'])
+@login_required
+def profile_page():
+    return render_template('profile.html', user=current_user)
 
-# Reaction time test page
-@app.route('/reactiontime', methods=['GET'])
-def reaction_test_page():
-    return render_template('/reaction_test.html')
 
 # Registration page
 @app.route('/signup', methods=['GET', 'POST'])
@@ -63,10 +61,12 @@ def sing_up_page():
         return redirect(url_for('login_page'))
     return render_template('register.html', form=form)
 
+
 # Unauthorized handler
 @login_manager.unauthorized_handler
 def unauthorized_callback():
     return redirect(url_for('login_page'))
+
 
 # Login page
 @app.route('/login', methods=['GET', 'POST'])
@@ -90,6 +90,7 @@ def login_page():
                 return render_template('login.html', form=form)
 
     return render_template('login.html', form=form)
+
 
 # Logout page
 @app.route('/logout', methods=['GET', 'POST'])
