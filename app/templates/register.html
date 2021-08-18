@@ -9,37 +9,45 @@
 <div class="container-fluid">
     <div class="row">
         <div class="form-wrapper box-shadow col-xl-4 offset-xl-4 offset-lg-1 col-lg-10 col-12">
-            <form action="" method="post" class="form">
+            <form action="" method="post" class="form" autocomplete="off">
                 {{ form.hidden_tag() }}
                 <h1 class="form__title">Sign Up</h1>
-                
+
                 <div class="form__group">
-                    {{ form.nickname(type="text", id="nickname", class="form__input", placeholder=" ", autocomplete="false") }}
-                    <label for="nickname" class="form__label">Nickname</label>
+                    {{ form.nickname(type="text", id="nickname", class="form__input", placeholder=" ") }}
+                    <label for="nickname" class="form__label">
+                        <i class="fa fa-user" aria-hidden="true"></i> Nickname
+                    </label>
                 </div>
-                
+
                 <div class="form__group">
-                    {{ form.email(type="text", id="email", class="form__input", placeholder=" ", autocomplete="false") }}
-                    <label for="email" class="form__label">Email</label>
+                    {{ form.email(type="text", id="email", class="form__input", placeholder=" ") }}
+                    <label for="email" class="form__label">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i> Email
+                    </label>
                 </div>
-                
+
                 <div class="form__group">
-                {{ form.password(type="password", id="password", class="form__input", placeholder=" ") }}
-                    <label for="password" class="form__label">Password</label>
+                    {{ form.password(type="password", id="password", class="form__input", placeholder=" ") }}
+                    <label for="password" class="form__label">
+                        <i class="fa fa-key" aria-hidden="true"></i> Password
+                    </label>
                     <a class="password-control"></a>
                 </div>
-                
+
                 <div class="form__group">
                     {{ form.password_again(type="password", id="password_again", class="form__input", placeholder=" ") }}
-                    <label for="password_again" class="form__label">Password again</label>
+                    <label for="password_again" class="form__label">
+                        <i class="fa fa-key" aria-hidden="true"> </i> Password again
+                    </label>
                     <a class="password-control"></a>
                 </div>
-                
+
                 {{ form.submit(type="submit", class="gradient-btn submit-btn") }}
-                
-                <p class="form-text">Already have an account ? 
+
+                <p class="form-text">Already have an account ?
                     <a class="form-text-link" href="{{ url_for('login_page') }}">
-                         Log in!
+                        Log in!
                     </a>
                 </p>
 

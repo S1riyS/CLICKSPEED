@@ -9,18 +9,22 @@
 <div class="container-fluid">
     <div class="row">
         <div class="form-wrapper box-shadow col-xl-4 offset-xl-4 offset-lg-1 col-lg-10 col-12">
-            <form action="" method="post" class="form">
+            <form action="" method="post" class="form" id=form>
                 {{ form.hidden_tag() }}
                 <h1 class="form__title">Log In</h1>
                 
                 <div class="form__group">
-                    {{ form.email(type="text", id="email", class="form__input", placeholder=" ", autocomplete="false") }}
-                    <label for="email" class="form__label">Email</label>
+                    {{ form.email(type="email", id="email", class="form__input", placeholder=" ") }}
+                    <label for="email" class="form__label">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>  Email
+                    </label>
                 </div>
                 
                 <div class="form__group">
                 {{ form.password(type="password", id="password", class="form__input", placeholder=" ") }}
-                    <label for="password" class="form__label">Password</label>
+                    <label for="password" class="form__label">
+                    <i class="fa fa-key" aria-hidden="true"></i> Password
+                    </label>
                     <a class="password-control"></a>
                 </div>
                 
