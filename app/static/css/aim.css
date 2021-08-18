@@ -51,10 +51,6 @@
     cursor: url(/static/images/crosshairs/scope.png) 19 19, auto;
 }
 
-.gradient-btn {
-    cursor: inherit !important;
-}
-
 /*  Target  */
 .target {
     animation-iteration-count: 1;

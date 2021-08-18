@@ -3,6 +3,7 @@ input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0 150px #1F2233 inset;
     /* можно изменить на любой вариант цвета */
     -webkit-text-fill-color: #fff;
+    font-family: inherit !important;
 }
 
 .main {
@@ -44,8 +45,6 @@ input:-webkit-autofill:focus {
     height: 100%;
     border: 2px solid #89ddff;
     border-radius: 0.5rem;
-    font-family: inherit;
-    font-weight: inherit;
     color: inherit;
     outline: none;
     padding: 1.4rem;
@@ -57,7 +56,7 @@ input:-webkit-autofill:focus {
 }
 
 .form__input:focus {
-    border-color: 2px solid #ffcb6b !important;
+    border-color: #ffcb6b !important;
 }
 
 .form__label {
@@ -118,8 +117,8 @@ input:-webkit-autofill:focus {
     color: #ff5370;
 }
 
-.form__input:focus ~ .form__label,
-.form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label,
+.form__input:focus ~ .form__label {
     top: -0.5rem;
     left: 0.8rem;
     font-size: 0.8rem;
