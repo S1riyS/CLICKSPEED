@@ -1,6 +1,10 @@
 import {
     parseURLParams
 } from './modules/url_parser.js';
+import {
+    returnURL,
+    followLink
+} from './modules/send_result.js';
 
 let isTestStarted = false,
     clicks = 0, // clicks
@@ -15,7 +19,9 @@ const counter = document.querySelector('#counter'),
     clickButton = document.querySelector('#start-btn'),
     clickArea = document.querySelector('#click-area');
 
-
+document.addEventListener("click", function (e) {
+    console.log(e.target);
+});
 // Функция, которая отрабатывает при нажатии на "кнопку"
 function clickOnButton() {
     clicks++;
@@ -28,22 +34,22 @@ function clickOnButton() {
         clickButton.innerHTML = '';
     }
 }
-clickButton.onclick = clickOnButton;
+clickArea.onclick = clickOnButton;
 
 //Удаление/добавление класса ripple (мобильное устройсвтво/ПК)
 $(function () {
     $(window).on('load resize', function () {
-        if ($(window).width() < 1201) {
-            clickArea.classList.remove('ripple');
-            clickArea.onclick = undefined;
-        } else {
+        console.log($(window).width());
+        if ($(window).width() > 1201) {
             clickArea.classList.add('ripple');
-            clickArea.onclick = clickOnButton;
+            clickButton.onclick = clickOnButton;
+        } else {
+            clickArea.classList.remove('ripple');
+            clickButton.onclick = undefined;
 
         }
     })
 })
-
 
 function updateHTML(time) {
     let dateTimer = new Date(time);
@@ -63,7 +69,10 @@ function startTestLoop() {
         updateHTML(time);
 
         if (time >= countdownValue * 1000) {
-            timerElement.innerHTML = countdownValue + ".00"
+            cps = (clicks / (time / 1000)).toFixed(2)
+            //            console.log(returnURL('CPS', cps, countdownValue));
+            followLink(returnURL('CPS', cps, countdownValue))
+            timerElement.innerHTML = countdownValue + ".00";
             clicks = 0;
             cps = 0;
             clickButton.innerHTML = 'Click here to start playing';

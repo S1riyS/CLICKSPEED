@@ -25,7 +25,7 @@ def test_page(test_name):
     test_time = request.args.get('test_time', type=int, default=10)
 
     if not test_time:
-        return render_template(f'{test_name}_test.html')
+        return render_template(f'{test_name}.html')
 
     if check_test_time(test_time):
         return render_template(f'{test_name}.html', test_time=test_time)
@@ -33,11 +33,30 @@ def test_page(test_name):
         return render_template('404.html')
 
 
+@app.route('/send_result', methods=['GET', 'POST'])
+def send_result_page():
+    test_name = request.args.get('test_name', type=str)
+    score = request.args.get('score', type=float)
+    test_time = request.args.get('test_time', type=int)
+    if current_user.is_active:
+        result = Result(
+            user_id=current_user.id,
+            test_name=test_name,
+            score=score,
+            test_time=test_time
+        )
+        db.session.add(result)
+        db.session.commit()
+    if test_time:
+        return redirect(url_for('test_page', test_name=test_name, test_time=test_time))
+    return redirect(url_for('test_page', test_name=test_name))
+
 # Profile page
 @app.route('/profile', methods=['GET'])
 @login_required
 def profile_page():
-    return render_template('profile.html', user=current_user)
+    results = db.session.query(Result).filter(Result.user_id == current_user.id)
+    return render_template('profile.html', user=current_user, results=results)
 
 
 # Registration page

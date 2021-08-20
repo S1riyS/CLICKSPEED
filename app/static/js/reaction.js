@@ -1,22 +1,33 @@
 import {
     getRandomInt
 } from './modules/random.js';
+import {
+    returnURL,
+    followLink
+} from './modules/send_result.js';
 
 let testArea = document.querySelector("#test-area");
 
-let timeoutID;
-let timeoutList = [];
-let duration, startTime, endTime;
+const maxRounds = 1;
+let currentRound = 0,
+    reactionTimeList = [],
+    averageReaction = 0
+
+let timeoutID,
+    timeoutList = [],
+    duration, startTime, endTime;
 
 
-function setContent(icon, title, text = "") {
+function setContent(icon, title, text = "", buttons = "") {
     let testIcon = document.querySelector("#test-area>.test-content>.test-icon"),
         testTitle = document.querySelector("#test-area>.test-content>.test-title"),
-        testText = document.querySelector("#test-area>.test-content>.test-text");
+        testText = document.querySelector("#test-area>.test-content>.test-text"),
+        testButtons = document.querySelector("#test-area>.test-content>.test-buttons");
 
     testIcon.innerHTML = icon;
     testTitle.innerHTML = title;
     testText.innerHTML = text;
+    testButtons.innerHTML = buttons;
 }
 
 function startCountdown() {
@@ -73,13 +84,38 @@ $("#test-area").mousedown(() => {
         case "go":
             endTime = Date.now();
             duration = endTime - startTime;
-            
-            testArea.dataset.state = "score";
-            setContent(
-                '<i class="fa fa-clock-o" aria-hidden="true"></i>',
-                `${duration} ms`,
-                "Click to keep going"
-            );
+
+            reactionTimeList.push(duration);
+            currentRound += 1;
+
+            if (currentRound >= maxRounds) {
+                let sum = reactionTimeList.reduce(function (acc, val) {
+                    return acc + val;
+                }, 0);
+                console.log(sum, maxRounds)
+                averageReaction = Math.round(sum / maxRounds);
+                //                followLink(returnURL('Reaction', averageReaction));
+                reactionTimeList = [];
+                currentRound = 0;
+
+                testArea.dataset.state = "final-score";
+                setContent(
+                    '<i class="fa fa-bolt" aria-hidden="true"></i>',
+                    `${averageReaction} ms`,
+                    "Save your score to see how you compare.",
+                    '<button class="save-result-btn gradient-btn">Save result</button><button class="try-again-btn gradient-btn">Try again</button>'
+                );
+                averageReaction = 0;
+
+            } else {
+                testArea.dataset.state = "score";
+                setContent(
+                    '<i class="fa fa-clock-o" aria-hidden="true"></i>',
+                    `${duration} ms`,
+                    "Click to keep going"
+                );
+            };
+
             break;
 
         case "score":
