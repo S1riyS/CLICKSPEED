@@ -49,6 +49,30 @@
     font-size: 20px;
 }
 
+.test-area .test-buttons {
+    margin-top: 20px;
+}
+
+.test-area buttons {
+    padding: 10;
+    font-weight: 500;
+    margin-right: 10;
+    background-size: 200% auto;
+    box-shadow: none !important;
+    background: transparent;
+    border: 3px solid #fff;
+    margin-right: 10px;
+}
+
+.test-area .test-buttons .try-again-btn {
+    background: linear-gradient(15deg, rgba(200, 200, 200, 0.5) 0%, rgba(250, 250, 250, 0.5) 100%);
+}
+
+.test-area .test-buttons .save-result-btn {
+    background: linear-gradient(15deg, #FFA833 0%, #FFD154 100%);
+    margin-right: 10px;
+}
+
 /*  Media  */
 @media (max-width: 770px) {
     .test-area .test-title {
