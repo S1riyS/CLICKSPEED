@@ -1,6 +1,7 @@
 import datetime
 
 import sqlalchemy
+from sqlalchemy import orm
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -23,6 +24,38 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.hashed_password, password)
+
+
+class Test(db.Model):
+    __tablename__ = "tests"
+    id = sqlalchemy.Column(sqlalchemy.Integer,
+                           primary_key=True, autoincrement=True)
+    name = sqlalchemy.Column(sqlalchemy.String, unique=True)
+    unit = sqlalchemy.Column(sqlalchemy.String)
+    link = sqlalchemy.Column(sqlalchemy.String)
+    icon = sqlalchemy.Column(sqlalchemy.String)
+
+
+class Result(db.Model):
+    __tablename__ = "results"
+    id = sqlalchemy.Column(sqlalchemy.Integer,
+                           primary_key=True, autoincrement=True)
+    user_id = sqlalchemy.Column(sqlalchemy.Integer,
+                                sqlalchemy.ForeignKey("users.id"))
+    user = orm.relation('User')
+    # ----- In .JS -----
+    test_name = sqlalchemy.Column(sqlalchemy.Integer,
+                                  sqlalchemy.ForeignKey("tests.name"))
+    test = orm.relation('Test')
+    score = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
+    test_time = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
+    # -------
+    date_create = sqlalchemy.Column(sqlalchemy.DateTime,
+                                    default=datetime.datetime.utcnow)
+
+    def get_test(self) -> Test:
+        test = db.session.query(Test).filter(Test.name == self.test_name).first()
+        return test
 
 
 @login_manager.user_loader
