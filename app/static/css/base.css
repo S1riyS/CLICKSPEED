@@ -93,7 +93,7 @@ body::-webkit-scrollbar-thumb {
     padding: 12px 18px;
     font-size: 19px;
     font-weight: 400;
-    border-radius: 5px;
+    border-radius: 8px;
     border: none;
     background: linear-gradient(15deg, #717CB4, #82aaff);
     background-size: 200% auto;
@@ -271,6 +271,7 @@ body::-webkit-scrollbar-thumb {
     color: #8B95B6;
     text-align: center;
     flex-shrink: 0;
+    margin-top: 20px;
 }
 
 .footer .row {
@@ -411,10 +412,6 @@ body::-webkit-scrollbar-thumb {
         margin: 0;
         margin-bottom: 15px;
         font-size: 22px;
-    }
-
-    .footer {
-        margin-top: 20px;
     }
 }
 

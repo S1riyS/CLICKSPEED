@@ -9,7 +9,7 @@ app.config.from_object('config')
 
 # Инициализирует расширения
 db = SQLAlchemy()
-migrate = Migrate(app, db)
+migrate = Migrate(app, db, render_as_batch=True)
 login_manager = LoginManager(app)
 moment = Moment(app)
 
