@@ -2,11 +2,42 @@
     background: #1F2233 !important;
 }
 
+/*  User info  */
+.user {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
 .username-block {
     margin-bottom: 0.8rem;
 }
 
-.username-block .label,
+.username-block::after {
+    transition: 300ms ease;
+    content: "";
+    height: 3px;
+    background: #89ddff;
+    width: 5%;
+    margin: auto;
+    display: block;
+}
+
+.username-block:hover::after {
+    width: 10%;
+}
+
+
+.username-block .value {
+    padding: 10px;
+    font-size: 45px;
+}
+
+.joined-block .label,
+.joined-block .value {
+    display: inline-block;
+
+}
+
 .joined-block .label {
     color: #bcc2d5;
     font-size: 16px;
@@ -14,4 +45,114 @@
 
 .joined-block .value {
     font-size: 18px;
+    margin-left: 5px;
+}
+
+
+/*  Activity feed  */
+.results-title {
+    margin: 10px 0px 25px 0px;
+}
+
+.no-results {
+    font-size: 25px;
+    margin: 15px 0px;
+    color: #f07178;
+}
+
+.table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+
+th,
+td,
+tr {
+    color: #eeffff;
+    background: transparent;
+    border: none;
+    text-align: center;
+    border-top: none !important;
+}
+
+th {
+    font-weight: normal;
+    padding: 8px !important;
+    font-weight: 500;
+    font-size: 20;
+}
+
+td {
+    padding: 8px !important;
+    font-size: 18px;
+    vertical-align: middle !important;
+}
+
+tr td:first-child {
+    border-top-left-radius: 15px;
+}
+
+tr td:last-child {
+    border-top-right-radius: 15px;
+}
+
+tr td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+tr td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+.table-row {
+    transition: 300ms ease;
+}
+
+.table-row:hover {
+    background: #323753
+}
+
+.cell-test {
+    transition: 200ms ease;
+}
+
+.cell-test a,
+.cell-test .fa {
+    color: #89ddff;
+}
+
+.cell-test:hover a {
+    color: #89ddff;
+}
+
+.cell-test:hover {
+    transform: scale(1.1);
+}
+
+.cell-date .date-create {
+    color: #bcc2d5;
+}
+
+/*  Media  */
+@media (max-width: 770px) {
+    .username-block::after {
+        width: 10%;
+    }
+
+    .username-block:hover::after {
+        width: 20%;
+    }
+
+    td {
+        padding: 8px;
+        font-size: 15px;
+    }
+    
+    .date-create {
+        display: none;
+    }
+    .cell-result span {
+        display: block;
+    }
 }

@@ -9,15 +9,50 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="user block col-lg-8 offset-lg-2 col-md-12">
+        <!--   User block    -->
+        <div class="user col-lg-8 offset-lg-2 col-md-12">
             <div class="username-block">
-                <p class="label">Username</p>
                 <h1 class="value">{{ user.nickname }}</h1>
             </div>
             <div class="joined-block">
                 <p class="label">Joined</p>
                 <p class="value">{{ moment(user.registration_date).fromNow(refresh=True) }}</p>
             </div>
+        </div>
+        <!--    Results info    -->
+        <div class="results block col-lg-8 offset-lg-2 col-md-12">
+            <h2 class="results-title">Activity feed</h2>
+            {% if results.count() == 0 %}
+                <p class="no-results">There's nothing here yet!</p>
+            {% else %}
+                <table class="table">
+                    <tr>
+                        <th>Test</th>
+                        <th>Date</th>
+                        <th>Score</th>
+                    </tr>
+                    {% for item in results %}
+                        {% set test = item.get_test() %}
+                        <tr class="table-row">
+                            <td class="cell-test">
+                                <a href="{{ url_for('test_page', test_name=test.link, test_time=item.test_time) }}">
+                                    <i class="fa {{ test.icon }}" aria-hidden="true"></i>
+                                    {{ test.name }} test
+                                </a>
+                            </td>
+
+                            <td class="cell-date"> {{ moment(item.date_create).fromNow(refresh=True) }} <br>
+                                <span class="date-create">{{ moment(item.date_create).format('DD.MM.YYYY, HH:mm') }}</span>
+                            </td>
+                            <td class="cell-result">{{ item.score }} {{ test.unit }}
+                                {% if item.test_time %}
+                                <span>({{ item.test_time }} sec)</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
         </div>
     </div>
 </div>
