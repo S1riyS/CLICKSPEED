@@ -20,6 +20,7 @@ def home_page():
     return render_template('main.html')
 
 
+# General test page
 @app.route('/tests/<string:test_name>', methods=['GET', 'POST'])
 def test_page(test_name):
     test_time = request.args.get('test_time', type=int, default=10)
@@ -33,23 +34,24 @@ def test_page(test_name):
         return render_template('404.html')
 
 
-@app.route('/send_result', methods=['GET', 'POST'])
+# Sending result to the DB
+@app.route('/send_result', methods=['POST'])
 def send_result_page():
-    test_name = request.args.get('test_name', type=str)
-    score = request.args.get('score', type=float)
-    test_time = request.args.get('test_time', type=int)
     if current_user.is_active:
+        data = request.json
+
         result = Result(
             user_id=current_user.id,
-            test_name=test_name,
-            score=score,
-            test_time=test_time
+            test_name=data['test_name'],
+            score=data['score'],
+            test_time=data['test_time']
         )
+
         db.session.add(result)
         db.session.commit()
-    if test_time:
-        return redirect(url_for('test_page', test_name=test_name, test_time=test_time))
-    return redirect(url_for('test_page', test_name=test_name))
+
+    return ''
+
 
 # Profile page
 @app.route('/profile', methods=['GET'])
@@ -84,26 +86,32 @@ def sing_up_page():
 # Unauthorized handler
 @login_manager.unauthorized_handler
 def unauthorized_callback():
+    session['next_url'] = request.path
     return redirect(url_for('login_page'))
 
 
 # Login page
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
+    next_url = session.get('next_url', '/')
+
     form = LoginForm()
     if form.validate_on_submit():
+        # Data
         email = form.email.data
         password = form.password.data
+        # Check data
         if email and password:
             user = db.session.query(User).filter(User.email == form.email.data).first()
-            print(user)
+            # Error
             if not user:
                 flash('Wrong login or password!')
                 return render_template('login.html', form=form)
+            # Success
             elif user.check_password(password):
                 login_user(user)
-                print(current_user.nickname)
-                return redirect(url_for('home_page'))
+                return redirect(next_url)
+            # Error
             else:
                 flash('Wrong login or password!')
                 return render_template('login.html', form=form)

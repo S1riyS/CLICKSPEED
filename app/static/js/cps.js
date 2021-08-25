@@ -2,8 +2,7 @@ import {
     parseURLParams
 } from './modules/url_parser.js';
 import {
-    returnURL,
-    followLink
+    sendResult
 } from './modules/send_result.js';
 
 let isTestStarted = false,
@@ -70,8 +69,7 @@ function startTestLoop() {
 
         if (time >= countdownValue * 1000) {
             cps = (clicks / (time / 1000)).toFixed(2)
-            //            console.log(returnURL('CPS', cps, countdownValue));
-            followLink(returnURL('CPS', cps, countdownValue))
+            sendResult('CPS', cps, countdownValue)
             timerElement.innerHTML = countdownValue + ".00";
             clicks = 0;
             cps = 0;

@@ -1,13 +1,12 @@
-export function returnURL(test_name, score, test_time=null) {
-    const stringURL = window.location.origin + '/send_result';
-    console.log(stringURL);
-    const webSiteURL = new URL(stringURL);
-    webSiteURL.searchParams.append('test_name', test_name);
-    webSiteURL.searchParams.append('score', score);
-    webSiteURL.searchParams.append('test_time', test_time);
-    return webSiteURL.href
-}
-
-export function followLink(url) {
-    document.location.href = url;
+export function sendResult(test_name, score, test_time = null) {
+    $.ajax({
+        url: '/send_result',
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        data: JSON.stringify({
+            test_name: test_name,
+            score: score,
+            test_time: test_time
+        })
+    })
 }

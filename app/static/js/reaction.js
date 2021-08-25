@@ -2,8 +2,7 @@ import {
     getRandomInt
 } from './modules/random.js';
 import {
-    returnURL,
-    followLink
+    sendResult
 } from './modules/send_result.js';
 
 let testArea = document.querySelector("#test-area");
@@ -51,6 +50,24 @@ function clearTimeoutList() {
     timeoutList = [];
 }
 
+//End test buttons
+$(document).on('click', '#try-again-btn', function () {
+    reactionTimeList = [];
+    currentRound = 0;
+    testArea.dataset.state = "splash";
+    setContent(
+        '<i class="fa fa-bolt" aria-hidden="true"></i>',
+        "Start test"
+    );
+})
+
+$(document).on('click', '#save-result-btn', function () {
+    reactionTimeList = [];
+    currentRound = 0;
+    sendResult('Reaction', averageReaction);
+})
+
+
 $("#test-area").mousedown(() => {
     switch (testArea.dataset.state) {
         case "splash":
@@ -94,18 +111,15 @@ $("#test-area").mousedown(() => {
                 }, 0);
                 console.log(sum, maxRounds)
                 averageReaction = Math.round(sum / maxRounds);
-                //                followLink(returnURL('Reaction', averageReaction));
-                reactionTimeList = [];
-                currentRound = 0;
 
                 testArea.dataset.state = "final-score";
                 setContent(
                     '<i class="fa fa-bolt" aria-hidden="true"></i>',
                     `${averageReaction} ms`,
                     "Save your score to see how you compare.",
-                    '<button class="save-result-btn gradient-btn">Save result</button><button class="try-again-btn gradient-btn">Try again</button>'
+                    `<button id="save-result-btn" class="box-shadow save-result-btn gradient-btn">Save result</button>
+                     <button id="try-again-btn" class="box-shadow try-again-btn gradient-btn">Try again</button>`
                 );
-                averageReaction = 0;
 
             } else {
                 testArea.dataset.state = "score";

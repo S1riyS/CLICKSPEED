@@ -1,8 +1,7 @@
 import { parseURLParams } from './modules/url_parser.js';
 import { getRandomInt } from './modules/random.js';
 import {
-    returnURL,
-    followLink
+    sendResult
 } from './modules/send_result.js';
 
 
@@ -104,8 +103,8 @@ function startTestLoop() {
         targetPerSecondElement.innerHTML = (score / parseFloat(currentTime)).toFixed(2);
         
         if (time >= countdownValue * 1000) {
-            targetPerSecond = (score / parseFloat(currentTime)).toFixed(2)
-            followLink(returnURL('Aim', targetPerSecond, countdownValue))
+            targetPerSecond = (score / parseFloat(currentTime)).toFixed(2);
+            sendResult('Aim', targetPerSecond, countdownValue);
             deleteAllTargets();
             timerElement.innerHTML = countdownValue + ".00"
             startGameButton.style.display = "flex";
