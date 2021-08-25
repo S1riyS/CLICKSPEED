@@ -47,21 +47,17 @@
 
 .test-area .test-text {
     font-size: 20px;
+    padding: 0px 15px ;
 }
 
 .test-area .test-buttons {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-.test-area buttons {
-    padding: 10;
-    font-weight: 500;
-    margin-right: 10;
-    background-size: 200% auto;
-    box-shadow: none !important;
-    background: transparent;
-    border: 3px solid #fff;
-    margin-right: 10px;
+.test-area button {
+    padding: 12;
 }
 
 .test-area .test-buttons .try-again-btn {
@@ -69,7 +65,7 @@
 }
 
 .test-area .test-buttons .save-result-btn {
-    background: linear-gradient(15deg, #FFA833 0%, #FFD154 100%);
+    background: linear-gradient(90deg, rgba(255,183,56, 1) 0%, rgba(255,215,0,1) 100%);
     margin-right: 10px;
 }
 

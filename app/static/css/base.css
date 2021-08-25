@@ -79,7 +79,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .box-shadow {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.12) !important;
 }
 
 .title {
@@ -89,21 +89,20 @@ body::-webkit-scrollbar-thumb {
 
 /* Button */
 .gradient-btn {
-    text-align: center;
     padding: 12px 18px;
     font-size: 19px;
     font-weight: 400;
     border-radius: 8px;
     border: none;
     background: linear-gradient(15deg, #717CB4, #82aaff);
-    background-size: 200% auto;
+    background-size: 200% auto !important;
     color: #fff;
     transition: 0.3s;
     box-shadow: 0px 0px 25px 0px rgba(130, 170, 255, 0.3);
 }
 
 .gradient-btn:hover {
-    background-position: right center;
+    background-position: right center !important;
     box-shadow: 0px 0px 25px 0px rgba(130, 170, 255, 0.3);
 }
 
@@ -238,19 +237,10 @@ body::-webkit-scrollbar-thumb {
     box-shadow: 0px 0px 25px 0px rgba(247, 164, 108, 0.3);
 }
 
-#singup-btn:hover {
-    background-position: right center;
-}
-
 #logout-btn {
     background: linear-gradient(15deg, #f07178 0%,
             #ff5370 100%);
-    background-size: 200% auto;
     box-shadow: 0px 0px 15px 0px #ff5370;
-}
-
-#logout-btn:hover {
-    background-position: right center;
 }
 
 #profile-btn {
@@ -258,6 +248,7 @@ body::-webkit-scrollbar-thumb {
     padding: 5px;
     transition: 300ms ease;
 }
+
 #profile-btn:hover {
     color: #A0FFE7;
     transform: scale(1.05);
