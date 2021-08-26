@@ -12,7 +12,7 @@
     ╚█████╔╝███████╗██║╚█████╔╝██║ ╚██╗██████╔╝██║     ███████╗███████╗██████╔╝
      ╚════╝ ╚══════╝╚═╝ ╚════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝     ╚══════╝╚══════╝╚═════╝ 
 ## 📝 About project
-SPEEDCLICK it`s a website where you can test your reaction and check how fast you aim and click with the mouse.
+[SPEEDCLICK](https://click-speed.herokuapp.com) it`s a website where you can test your reaction and check how fast you aim and click with the mouse.
 
 ## 💻 Moduels
 * **[Flask](https://flask.palletsprojects.com/en/master/)** - A framework for creating web applications using Python
@@ -25,7 +25,7 @@ that gives application developers the full power and flexibility of SQL
 * **[Flask-WTF](https://flask-wtf.readthedocs.io/en/v0.8.3/)** - Library for working with forms
 
 ## ⬇ Install
-To get started, you need to install [Python 3.8](https://www.python.org/downloads/release/python-380/).
+To get started, you have to install [Python 3.8](https://www.python.org/downloads/release/python-380/).
 
 Then, to install all the necessary modules, you need to write the following command in the console:
 ```sh
@@ -34,5 +34,4 @@ pip install -r requirements.txt
 Now you can start `app.py` file.
 
 ## 🎞 Preview
-![alt Home page](https://downloader.disk.yandex.ru/preview/2385fb818a1b2b21811b8df89b4eeee3792ba58d9b8ca8b757f92a836136fb55/6118f376/xYkacmp1j6Vwju6aBATLBF0qQrWAk6ct324iDIvgUIvtI3S1HfKO5FFu1UNXgV2UppyljchnRJLRISWUoNxQsg%3D%3D?uid=0&filename=Web-Showcase-Project-Presentation.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048)
-
+![Preview Image](https://i.postimg.cc/7PXqjWPQ/Web-Showcase-Project-Presentation.png)
