@@ -7,7 +7,7 @@ import {
 
 let testArea = document.querySelector("#test-area");
 
-const maxRounds = 1;
+const maxRounds = 5;
 let currentRound = 0,
     reactionTimeList = [],
     averageReaction = 0
@@ -64,6 +64,11 @@ $(document).on('click', '#try-again-btn', function () {
 $(document).on('click', '#save-result-btn', function () {
     reactionTimeList = [];
     currentRound = 0;
+    testArea.dataset.state = "splash";
+    setContent(
+        '<i class="fa fa-bolt" aria-hidden="true"></i>',
+        "Start test"
+    );
     sendResult('Reaction', averageReaction);
 })
 
