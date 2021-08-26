@@ -63,6 +63,7 @@
 .table {
     table-layout: fixed;
     width: 100%;
+    margin: 0 !important;
 }
 
 
@@ -84,7 +85,7 @@ th {
 }
 
 td {
-    padding: 8px !important;
+    padding: 6px !important;
     font-size: 18px;
     vertical-align: middle !important;
 }
@@ -115,6 +116,17 @@ tr td:last-child {
 
 .cell-test {
     transition: 200ms ease;
+}
+
+.cell-test a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell-test i {
+    margin-right: 8px;
+    font-size: 1.6rem
 }
 
 .cell-test a,
@@ -148,10 +160,15 @@ tr td:last-child {
         padding: 8px;
         font-size: 15px;
     }
-    
+
+    .cell-test i {
+        font-size: 1.2rem
+    }
+
     .date-create {
         display: none;
     }
+
     .cell-result span {
         display: block;
     }
