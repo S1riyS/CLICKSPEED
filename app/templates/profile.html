@@ -1,6 +1,8 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
     <title>{{ WEBSITE_URL }} - {{ user.nickname }}</title>
+    {{ moment.include_moment() }}
+    {{ moment.locale(LANGUAGE) }}
 </head>
 
 {% extends "base.html" %}
@@ -37,7 +39,7 @@
                             <td class="cell-test">
                                 <a href="{{ url_for('test_page', test_name=test.link, test_time=item.test_time) }}">
                                     <i class="fa {{ test.icon }}" aria-hidden="true"></i>
-                                    {{ test.name }} test
+                                    <p>{{ test.name }} test</p>
                                 </a>
                             </td>
 
