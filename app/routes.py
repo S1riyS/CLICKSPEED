@@ -1,3 +1,5 @@
+from functools import wraps
+
 from flask import render_template, request, flash, redirect, url_for, session
 from flask_login import current_user, login_user, login_required, logout_user
 
@@ -6,6 +8,7 @@ from .data.models import *
 from .forms.user import RegisterForm, LoginForm
 
 
+#  Check "Test time" url parameter
 def check_test_time(test_time) -> bool:
     acceptable_values = {1, 2, 5, 10, 15, 30, 60, 100}
     if test_time:
@@ -14,14 +17,25 @@ def check_test_time(test_time) -> bool:
     return False
 
 
+# Decoration function which adds current url to session variable
+def next_url(func):
+    @wraps(func)
+    def wrapper_function(*args, **kwargs):
+        session['next_url'] = request.path
+        return func(*args, **kwargs)
+    return wrapper_function
+
+
 # Home page
 @app.route('/', methods=['GET'])
+@next_url
 def home_page():
     return render_template('main.html')
 
 
 # General test page
 @app.route('/tests/<string:test_name>', methods=['GET', 'POST'])
+@next_url
 def test_page(test_name):
     test_time = request.args.get('test_time', type=int, default=10)
 
@@ -124,7 +138,8 @@ def login_page():
 @login_required
 def logout_page():
     logout_user()
-    return redirect(url_for('home_page'))
+    next_url = session.get('next_url', '/')
+    return redirect(next_url)
 
 
 # 404 error handler
