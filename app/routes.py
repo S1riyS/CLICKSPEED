@@ -23,6 +23,7 @@ def next_url(func):
     def wrapper_function(*args, **kwargs):
         session['next_url'] = request.path
         return func(*args, **kwargs)
+
     return wrapper_function
 
 
@@ -71,7 +72,7 @@ def send_result_page():
 @app.route('/profile', methods=['GET'])
 @login_required
 def profile_page():
-    results = db.session.query(Result).filter(Result.user_id == current_user.id)
+    results = db.session.query(Result).filter(Result.user_id == current_user.id).order_by(Result.date_create.desc())
     return render_template('profile.html', user=current_user, results=results)
 
 
