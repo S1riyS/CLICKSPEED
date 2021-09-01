@@ -27,33 +27,42 @@
             {% if results.count() == 0 %}
                 <p class="no-results">There's nothing here yet!</p>
             {% else %}
-                <table class="table">
-                    <tr>
-                        <th>Test</th>
-                        <th>Date</th>
-                        <th>Score</th>
-                    </tr>
-                    {% for item in results %}
-                        {% set test = item.get_test() %}
-                        <tr class="table-row">
-                            <td class="cell-test">
-                                <a href="{{ url_for('test_page', test_name=test.link, test_time=item.test_time) }}">
-                                    <i class="fa {{ test.icon }}" aria-hidden="true"></i>
-                                    <p>{{ test.name }} test</p>
-                                </a>
-                            </td>
-
-                            <td class="cell-date"> {{ moment(item.date_create).fromNow(refresh=True) }} <br>
-                                <span class="date-create">{{ moment(item.date_create).format('DD.MM.YYYY, HH:mm') }}</span>
-                            </td>
-                            <td class="cell-result">{{ item.score }} {{ test.unit }}
-                                {% if item.test_time %}
-                                <span>({{ item.test_time }} sec)</span>
-                                {% endif %}
-                            </td>
+               <div class="table-wrapper" aria-expanded="false">
+                   <table class="table" id="table-activity-feed">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Date</th>
+                            <th>Score</th>
                         </tr>
-                    {% endfor %}
+                    </thead>
+                    <tbody>
+                        {% for item in results %}
+                            {% set test = item.get_test() %}
+                            <tr class="table-row">
+                                <td class="cell-test">
+                                    <a href="{{ url_for('test_page', test_name=test.link, test_time=item.test_time) }}">
+                                        <i class="fa {{ test.icon }}" aria-hidden="true"></i>
+                                        <p>{{ test.name }} test</p>
+                                    </a>
+                                </td>
+
+                                <td class="cell-date"> {{ moment(item.date_create).fromNow(refresh=True) }} <br>
+                                    <span class="date-create">{{ moment(item.date_create).format('DD.MM.YYYY, HH:mm') }}</span>
+                                </td>
+                                <td class="cell-result">{{ item.score }} {{ test.unit }}
+                                    {% if item.test_time %}
+                                    <span>({{ item.test_time }} sec)</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
+                {% if results.count() > 4 %}
+                    <div class="show-hide-btn"></div>
+                {% endif %}
+               </div>
             {% endif %}
         </div>
     </div>
@@ -61,4 +70,6 @@
 {% endblock %}
 
 {% block scripts %}
+<script type="module" src="{{ url_for('static', filename='js/profile.js')
+     }}"></script>
 {% endblock %}

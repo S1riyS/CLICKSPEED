@@ -30,6 +30,7 @@
 .username-block .value {
     padding: 10px;
     font-size: 45px;
+    overflow: hidden;
 }
 
 .joined-block .label,
@@ -66,6 +67,23 @@
     margin: 0 !important;
 }
 
+.show-hide-btn {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 5px 0;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
+    transform: rotateZ(225deg);
+    transition: 400ms ease;
+    cursor: pointer;
+}
+
+.table-wrapper[aria-expanded="true"] .show-hide-btn {
+    transform: rotateZ(45deg);
+    margin: 0;
+    margin-top: 20px;
+}
 
 th,
 td,
@@ -75,6 +93,7 @@ tr {
     border: none;
     text-align: center;
     border-top: none !important;
+    border-bottom: none !important;
 }
 
 th {
@@ -156,6 +175,11 @@ tr td:last-child {
         width: 20%;
     }
 
+    .show-hide-btn {
+        width: 20px;
+        height: 20px;
+    }
+
     td {
         padding: 8px;
         font-size: 15px;
@@ -163,6 +187,10 @@ tr td:last-child {
 
     .cell-test i {
         font-size: 1.2rem
+    }
+
+    .cell-test a p {
+        text-align: left;
     }
 
     .date-create {
