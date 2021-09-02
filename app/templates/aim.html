@@ -1,5 +1,6 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/aim.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/results_table.css') }}">
     <title>{{ WEBSITE_URL }} - Aim Test - ({{ test_time }} second)</title>
 </head>
 
@@ -32,10 +33,13 @@
                 </div>
             </div>
         </div>
+        <!--    Results info    -->
+        {% include "results_table.html" %}
     </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script type="module" src="{{ url_for('static', filename='js/aim.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/results_table.js') }}"></script>
 {% endblock %}
