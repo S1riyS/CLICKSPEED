@@ -18,9 +18,6 @@ const counter = document.querySelector('#counter'),
     clickButton = document.querySelector('#start-btn'),
     clickArea = document.querySelector('#click-area');
 
-document.addEventListener("click", function (e) {
-    console.log(e.target);
-});
 // Функция, которая отрабатывает при нажатии на "кнопку"
 function clickOnButton() {
     clicks++;
@@ -38,7 +35,6 @@ clickArea.onclick = clickOnButton;
 //Удаление/добавление класса ripple (мобильное устройсвтво/ПК)
 $(function () {
     $(window).on('load resize', function () {
-        console.log($(window).width());
         if ($(window).width() > 1201) {
             clickArea.classList.add('ripple');
             clickButton.onclick = clickOnButton;

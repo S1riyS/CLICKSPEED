@@ -114,7 +114,6 @@ $("#test-area").mousedown(() => {
                 let sum = reactionTimeList.reduce(function (acc, val) {
                     return acc + val;
                 }, 0);
-                console.log(sum, maxRounds)
                 averageReaction = Math.round(sum / maxRounds);
 
                 testArea.dataset.state = "final-score";
