@@ -3,12 +3,12 @@
     {{ moment.locale(LANGUAGE) }}
     <h2 class="results-title">Activity feed</h2>
     {% if results == None %}
-        <!--     Error message      -->
+        <!--     Message      -->
         <p class="not-logged results-error-message">You have to <a href="{{ url_for('login_page') }}">Log In</a>, then your results can be saved</p>
     {% else %}
         {% if results.count() == 0 %}
-        <!--     Error message      -->
-        <p class="no-results">There's nothing here yet!</p>
+        <!--     Message      -->
+        <p class="no-results results-error-message">There's nothing here yet!</p>
         {% else %}
         <div class="table-wrapper" aria-expanded="false">
             <!--     Table      -->
