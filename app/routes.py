@@ -2,6 +2,7 @@ from functools import wraps
 
 from flask import render_template, request, flash, redirect, url_for, session
 from flask_login import current_user, login_user, login_required, logout_user
+from sqlalchemy import func
 
 from . import app, db, moment
 from .data.models import *
@@ -39,12 +40,15 @@ def home_page():
 @next_url
 def test_page(test_name):
     test_time = request.args.get('test_time', type=int, default=10)
+    results = db.session.query(Result).filter(Result.user_id == current_user.id,
+                                              func.lower(Result.test_name) == test_name.lower()).order_by(
+        Result.date_create.desc())
 
     if not test_time:
-        return render_template(f'{test_name}.html')
+        return render_template(f'{test_name}.html', results=results)
 
     if check_test_time(test_time):
-        return render_template(f'{test_name}.html', test_time=test_time)
+        return render_template(f'{test_name}.html', test_time=test_time, results=results)
     else:
         return render_template('404.html')
 
