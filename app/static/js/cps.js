@@ -18,6 +18,8 @@ const counter = document.querySelector('#counter'),
     clickButton = document.querySelector('#start-btn'),
     clickArea = document.querySelector('#click-area');
 
+$('.results ').removeClass('offset-lg-2');
+
 // Функция, которая отрабатывает при нажатии на "кнопку"
 function clickOnButton() {
     clicks++;
