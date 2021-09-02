@@ -40,9 +40,12 @@ def home_page():
 @next_url
 def test_page(test_name):
     test_time = request.args.get('test_time', type=int, default=10)
-    results = db.session.query(Result).filter(Result.user_id == current_user.id,
-                                              func.lower(Result.test_name) == test_name.lower()).order_by(
-        Result.date_create.desc())
+    if current_user.is_active:
+        results = db.session.query(Result).filter(Result.user_id == current_user.id,
+                                                  func.lower(Result.test_name) == test_name.lower()).order_by(
+            Result.date_create.desc())
+    else:
+        results = None
 
     if not test_time:
         return render_template(f'{test_name}.html', results=results)

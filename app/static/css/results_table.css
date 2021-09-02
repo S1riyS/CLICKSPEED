@@ -1,16 +1,31 @@
 /*  Activity feed  */
-.results  {
-    margin-top: 20px;  
+.results {
+    margin-top: 20px;
 }
 
 .results-title {
     margin: 10px 0px 25px 0px;
 }
 
-.no-results {
+.results-error-message {
     font-size: 25px;
     margin: 15px 0px;
+}
+
+.no-results {
     color: #f07178;
+}
+
+.not-logged {
+    color: #8db7db;
+}
+
+.not-logged a {
+    color: #c3e88d;
+}
+
+.not-logged a:hover {
+    color: #a9dc76;
 }
 
 .table {
