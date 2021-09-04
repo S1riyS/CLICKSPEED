@@ -41,9 +41,10 @@ def home_page():
 def test_page(test_name):
     test_time = request.args.get('test_time', type=int, default=10)
     if current_user.is_active:
-        results = db.session.query(Result).filter(Result.user_id == current_user.id,
-                                                  func.lower(Result.test_name) == test_name.lower()).order_by(
-            Result.date_create.desc())
+        results = db.session.query(Result).filter(
+            Result.user_id == current_user.id,
+            func.lower(Result.test_name) == test_name.lower()
+        ).order_by(Result.date_create.desc())
     else:
         results = None
 
@@ -60,17 +61,19 @@ def test_page(test_name):
 @app.route('/send_result', methods=['POST'])
 def send_result_page():
     if current_user.is_active:
-        data = request.json
+        allowed_tests_names = [i[0] for i in db.session.query(Test.name).all()] # Test's names from DB
+        data = request.json # Data from Ajax Post query
+        # Checking data
+        if data['test_name'] in allowed_tests_names and data['score'] is not None and data['test_time'] is not None:
+            result = Result(
+                user_id=current_user.id,
+                test_name=data['test_name'],
+                score=data['score'],
+                test_time=data['test_time']
+            )
 
-        result = Result(
-            user_id=current_user.id,
-            test_name=data['test_name'],
-            score=data['score'],
-            test_time=data['test_time']
-        )
-
-        db.session.add(result)
-        db.session.commit()
+            db.session.add(result)
+            db.session.commit()
 
     return ''
 
