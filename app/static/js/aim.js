@@ -1,8 +1,6 @@
 import { parseURLParams } from './modules/url_parser.js';
 import { getRandomInt } from './modules/random.js';
-import {
-    sendResult
-} from './modules/send_result.js';
+import { getModalWindow, setModalValues } from './modules/modal.js';
 
 
 let isGameStarted = false,
@@ -20,6 +18,7 @@ const gameSurface = document.getElementById("game-area"),
     targetPerSecondElement = document.getElementById('targetPerSecond'),
     scoreElement = document.getElementById('score');
 
+const modalWindow = getModalWindow()
 
 // Target settings
 const target = {
@@ -104,7 +103,8 @@ function startTestLoop() {
         
         if (time >= countdownValue * 1000) {
             targetPerSecond = (score / parseFloat(currentTime)).toFixed(2);
-            sendResult('Aim', targetPerSecond, countdownValue);
+            setModalValues('Aim', targetPerSecond, countdownValue);
+            modalWindow.show();
             deleteAllTargets();
             timerElement.innerHTML = countdownValue + ".00"
             startGameButton.style.display = "flex";

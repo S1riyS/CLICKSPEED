@@ -2,8 +2,8 @@ import {
     parseURLParams
 } from './modules/url_parser.js';
 import {
-    sendResult
-} from './modules/send_result.js';
+    getModalWindow, setModalValues
+} from './modules/modal.js';
 
 let isTestStarted = false,
     clicks = 0, // clicks
@@ -18,8 +18,7 @@ const counter = document.querySelector('#counter'),
     clickButton = document.querySelector('#start-btn'),
     clickArea = document.querySelector('#click-area');
 
-$('.results ').removeClass('offset-lg-2');
-
+const modalWindow = getModalWindow()
 // Функция, которая отрабатывает при нажатии на "кнопку"
 function clickOnButton() {
     clicks++;
@@ -66,8 +65,9 @@ function startTestLoop() {
         updateHTML(time);
 
         if (time >= countdownValue * 1000) {
-            cps = (clicks / (time / 1000)).toFixed(2)
-            sendResult('CPS', cps, countdownValue)
+            cps = (clicks / (time / 1000)).toFixed(2);
+            setModalValues('CPS', cps, countdownValue);
+            modalWindow.show();
             timerElement.innerHTML = countdownValue + ".00";
             clicks = 0;
             cps = 0;
