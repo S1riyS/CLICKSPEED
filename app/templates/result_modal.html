@@ -1,0 +1,30 @@
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css') }}">
+</head>
+<!--  Modal window  -->
+<div class="modal fade" id='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class='modal-title'>Your Result</h4>
+                <button type="button" class="btn-close btn-close-white" data-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <i class="fa fa-5x fa-trophy modal-icon" aria-hidden="true"></i>
+                <div class="result-values">
+                    <p><span class="title">Click/s: </span><span class="value" id="resultScore"></span></p>
+                    <p><span class="title">Time: </span><span class="value" id="resultTime"></span></p>
+                </div>
+                <div class="result-buttons">
+                    <button id="save-result-btn" class="box-shadow save-result-btn gradient-btn modal-button" data-dismiss="modal">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i> Save result
+                    </button>
+                     <button id="try-again-btn" class="box-shadow try-again-btn gradient-btn modal-button" data-dismiss="modal">
+                     <i class="fa fa-refresh" aria-hidden="true"></i> Try again
+                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

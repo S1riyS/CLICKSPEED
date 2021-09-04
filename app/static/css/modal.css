@@ -1,0 +1,64 @@
+.modal-content {
+    background: #272a40;
+}
+
+.modal-header {
+    align-items: center;
+}
+
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.btn-close {
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: .25em .25em;
+    color: #000;
+    background: transparent url(/static/images/svg/btn-close.svg) center/1em auto no-repeat;
+    border: 0;
+    border-radius: .25rem;
+    opacity: .65;
+}
+
+.btn-close:hover {
+    color: #000;
+    text-decoration: none;
+    opacity: .85;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-body .modal-icon {
+    color: #ffc250;
+}
+
+.modal-body .result-values {
+    margin-top: 20px;
+}
+
+.modal-body .result-values .title {
+    font-size: 25px;
+}
+
+.modal-body .result-values .value {
+    font-size: 30px;
+    font-weight: 500;
+    color: #89ddff;
+}
+
+.result-buttons {
+    margin-top: 20px;
+}
+
+.modal-button {
+    padding: 10px;
+}
+
+.result-buttons .save-result-btn {
+    background: linear-gradient(90deg, rgba(255, 183, 56, 1) 0%, rgba(255, 215, 0, 1) 100%);
+    margin-right: 5px;
+}
