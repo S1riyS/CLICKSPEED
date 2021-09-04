@@ -1,6 +1,6 @@
 /*  Activity feed  */
 .results {
-    margin-top: 20px;
+    margin-top: 20px !important;
 }
 
 .results-title {
@@ -77,19 +77,19 @@ td {
 }
 
 tr td:first-child {
-    border-top-left-radius: 15px;
+    border-top-left-radius: 10px;
 }
 
 tr td:last-child {
-    border-top-right-radius: 15px;
+    border-top-right-radius: 10px;
 }
 
 tr td:first-child {
-    border-bottom-left-radius: 15px;
+    border-bottom-left-radius: 10px;
 }
 
 tr td:last-child {
-    border-bottom-right-radius: 15px;
+    border-bottom-right-radius: 10px;
 }
 
 .table-row {

@@ -1,8 +1,14 @@
 /* General settings */
+:root {
+    --main-bg-color: #0F111A;
+    --block-bg-color: #171926;
+    --dark-blue-color: #090B10;
+}
+
 body {
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
-    background: #0F111A;
+    background: var(--main-bg-color);
     color: #eeffff;
     display: flex;
     flex-direction: column;
@@ -71,7 +77,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .block {
-    background: #171926;
+    background: var(--block-bg-color);
     padding: 15px 20px;
     border-radius: 5px;
     text-align: center;
@@ -244,7 +250,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 #profile-btn {
-    font-size: 20px;
     padding: 5px;
     transition: 300ms ease;
 }
@@ -258,7 +263,7 @@ body::-webkit-scrollbar-thumb {
 .footer {
     width: 100%;
     padding: 15px;
-    background-color: #090B10;
+    background-color: var(--dark-blue-color);
     color: #8B95B6;
     text-align: center;
     flex-shrink: 0;
@@ -361,7 +366,7 @@ body::-webkit-scrollbar-thumb {
         position: absolute;
         width: 100%;
         z-index: 2;
-        background: #090B10;
+        background: var(--dark-blue-color);
         left: 0;
         padding: 25;
         margin: 0;
@@ -401,7 +406,7 @@ body::-webkit-scrollbar-thumb {
 
     .header .header__nav .profile .profile-item {
         margin: 0;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         font-size: 22px;
     }
 }
