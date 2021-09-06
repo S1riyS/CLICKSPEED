@@ -53,7 +53,7 @@ input:focus {
 
 /*  Scrollbar  */
 body::-webkit-scrollbar {
-    width: 14px;
+    width: 16px;
     /* ширина scrollbar */
 }
 
@@ -65,8 +65,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background-color: #565656;
     /* цвет плашки */
-    border-radius: 6px;
-    /* закругления плашки */
     border: 3px solid #343434;
     /* padding вокруг плашки */
 }
