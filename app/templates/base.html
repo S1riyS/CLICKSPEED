@@ -53,8 +53,8 @@
                             <a class="dropdown-item" href="{{ url_for('test_page', test_name='aim', test_time=10) }}"><i class="fa fa-bullseye" aria-hidden="true"></i> Aim test</a>
                             <a href="{{ url_for('test_page', test_name='reaction') }}" class="dropdown-item"><i class="fa fa-clock-o" aria-hidden="true"></i> Reaction test</a>
                         </div>
-                        <a class="item" href="https://vk.com/s1riys"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
-                        <a class="item" href="https://github.com/S1riyS/CLICKSPEED.RU"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+                        <a class="item" href="https://vk.com/s1riys" target="_blank"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
+                        <a class="item" href="https://github.com/S1riyS/CLICKSPEED.RU" target="_blank"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
                     </nav>
                     <div class="profile">
                         {% if current_user.is_authenticated %}
@@ -84,7 +84,7 @@
                 <p class="col-xl-3 col-12">Copyright © 2021 <span>{{ WEBSITE_URL }}</span></p>
                 <p class="col-xl-3 col-12">Developed by
                     <span>
-                        <a href="https://vk.com/s1riys">
+                        <a href="https://vk.com/s1riys" target="_blank">
                             <i class="fa fa-code" aria-hidden="true"></i> {{ DEVELOPER }}
                         </a>
                     </span>
