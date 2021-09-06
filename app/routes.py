@@ -22,7 +22,7 @@ def check_test_time(test_time) -> bool:
 def next_url(func):
     @wraps(func)
     def wrapper_function(*args, **kwargs):
-        session['next_url'] = request.path
+        session['next_url'] = request.url
         return func(*args, **kwargs)
 
     return wrapper_function
